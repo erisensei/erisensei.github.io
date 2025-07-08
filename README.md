@@ -39,7 +39,7 @@ eri_website/
 
 1. **Create a GitHub Repository**
    - Go to GitHub and create a new repository
-   - Name it: `yourusername.github.io` (replace `yourusername` with your actual GitHub username)
+   - Name it: `erisensei.github.io` (exactly as shown)
 
 2. **Upload Files**
    - Upload all the files from this project to your repository
@@ -53,7 +53,7 @@ eri_website/
 
 4. **Deploy**
    - GitHub Pages will automatically deploy your site
-   - Your site will be available at `https://yourusername.github.io`
+   - Your site will be available at `https://erisensei.github.io`
 
 ## 🎯 Customization Guide
 

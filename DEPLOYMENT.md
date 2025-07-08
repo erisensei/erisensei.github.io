@@ -6,7 +6,7 @@
 1. Go to [GitHub.com](https://github.com) and sign in
 2. Click the "+" icon in the top right corner
 3. Select "New repository"
-4. Repository name: `iameri.github.io` (exactly as shown)
+4. Repository name: `erisensei.github.io` (exactly as shown)
 5. Make it **Public**
 6. Click "Create repository"
 
@@ -31,7 +31,7 @@
 ### Step 4: Wait for Deployment
 - GitHub will automatically build and deploy your site
 - It may take 5-10 minutes for the first deployment
-- Your site will be available at: `https://iameri.github.io`
+- Your site will be available at: `https://erisensei.github.io`
 
 ## ✅ What's Included
 
@@ -127,6 +127,6 @@ Your website will help with:
 
 ---
 
-**Your website will be live at: https://iameri.github.io**
+**Your website will be live at: https://erisensei.github.io**
 
 *Transform your Japanese learning journey with personalized, engaging lessons designed to help you achieve fluency naturally and confidently.* 
