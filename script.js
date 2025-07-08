@@ -213,8 +213,14 @@ const statsObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             const statNumbers = entry.target.querySelectorAll('.stat-number');
             statNumbers.forEach(stat => {
+                // Skip animation for the flags
+                if (stat.hasAttribute('data-flags')) {
+                    return; // Don't animate flags
+                }
                 const target = parseInt(stat.textContent);
-                animateCounter(stat, target);
+                if (!isNaN(target)) {
+                    animateCounter(stat, target);
+                }
             });
             statsObserver.unobserve(entry.target);
         }
