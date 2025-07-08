@@ -63,8 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
         // Get form data
         const formData = new FormData(this);
         const name = formData.get('name');
@@ -74,6 +72,7 @@ if (contactForm) {
         
         // Basic validation
         if (!name || !email || !level || !message) {
+            e.preventDefault();
             showNotification('Please fill in all fields.', 'error');
             return;
         }
@@ -81,15 +80,19 @@ if (contactForm) {
         // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
+            e.preventDefault();
             showNotification('Please enter a valid email address.', 'error');
             return;
         }
         
-        // Simulate form submission (replace with actual form handling)
+        // Show success message
         showNotification('Thank you for your message! I\'ll get back to you soon.', 'success');
         
-        // Reset form
-        this.reset();
+        // Form will submit to Formspree automatically
+        // Reset form after a short delay
+        setTimeout(() => {
+            this.reset();
+        }, 1000);
     });
 }
 
