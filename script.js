@@ -362,6 +362,12 @@ document.addEventListener('DOMContentLoaded', () => {
     loadRandomTestimonials();
     initializeFlagAnimation();
     
+    // Fetch live stats from Preply
+    fetchPreplyStats();
+    
+    // Refresh stats every hour to keep them current
+    setInterval(fetchPreplyStats, 60 * 60 * 1000); // 1 hour
+    
     // Start flag loop after initial animation
     setTimeout(() => {
         startFlagLoop();
@@ -433,4 +439,87 @@ style.textContent = `
         opacity: 0.8;
     }
 `;
-document.head.appendChild(style); 
+document.head.appendChild(style);
+
+// Function to fetch live lesson count from Preply profile
+async function fetchPreplyStats() {
+    try {
+        // Use a CORS proxy to fetch the Preply profile
+        const proxyUrl = 'https://api.allorigins.win/raw?url=';
+        const preplyUrl = 'https://preply.com/en/tutor/6337467';
+        
+        const response = await fetch(proxyUrl + encodeURIComponent(preplyUrl));
+        const html = await response.text();
+        
+        // Parse the HTML to extract lesson count
+        // Looking for specific patterns in the Preply profile
+        // Pattern 1: "47 lessons" in the stats section
+        const lessonMatch = html.match(/(\d+)\s*lessons?/i);
+        
+        // Pattern 2: Look for the specific stats section that shows lesson count
+        const statsMatch = html.match(/lessons?.*?(\d+)/i);
+        
+        // Pattern 3: Look for the profile stats section
+        const profileStatsMatch = html.match(/profile.*?(\d+).*?lessons?/i);
+        
+        let lessonCount = null;
+        
+        if (lessonMatch) {
+            lessonCount = parseInt(lessonMatch[1]);
+        } else if (statsMatch) {
+            lessonCount = parseInt(statsMatch[1]);
+        } else if (profileStatsMatch) {
+            lessonCount = parseInt(profileStatsMatch[1]);
+        }
+        
+        if (lessonCount && lessonCount > 0) {
+            updateLessonCount(lessonCount);
+            console.log('Updated lesson count to:', lessonCount);
+        } else {
+            // Fallback to the known value from the profile
+            updateLessonCount(47);
+            console.log('Using fallback lesson count: 47');
+        }
+        
+        // Also try to extract review count
+        const reviewMatch = html.match(/(\d+)\s*reviews?/i);
+        if (reviewMatch) {
+            const reviewCount = parseInt(reviewMatch[1]);
+            updateReviewCount(reviewCount);
+            console.log('Found review count:', reviewCount);
+        }
+        
+    } catch (error) {
+        console.log('Could not fetch live stats from Preply:', error);
+        // Fallback to default values
+        updateLessonCount(47); // Default from the profile
+    }
+}
+
+// Function to update lesson count in the stats section
+function updateLessonCount(count) {
+    const lessonStat = document.getElementById('lessonCount');
+    if (lessonStat) {
+        // Add a subtle animation to show the update
+        lessonStat.style.transition = 'all 0.3s ease';
+        lessonStat.style.transform = 'scale(1.1)';
+        lessonStat.style.color = '#e74c3c';
+        
+        setTimeout(() => {
+            lessonStat.textContent = count + '+';
+            lessonStat.style.transform = 'scale(1)';
+            lessonStat.style.color = '';
+        }, 150);
+        
+        // Re-trigger counter animation if stats section is visible
+        if (lessonStat.closest('.about-stats').classList.contains('fade-in-up')) {
+            animateCounter(lessonStat, count);
+        }
+    }
+}
+
+// Function to update review count (if we want to show it)
+function updateReviewCount(count) {
+    // This could be used to update review count if we add it to the stats
+    console.log('Live review count:', count);
+} 
