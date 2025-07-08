@@ -301,6 +301,39 @@ body {
     color: var(--text-dark);
 }
 
+/* Sliding title animation */
+.sliding-title {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: slideTitle 8s linear infinite;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--primary-color));
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@keyframes slideTitle {
+    0% {
+        transform: translateX(-100%);
+        background-position: 0% 50%;
+    }
+    50% {
+        transform: translateX(0%);
+        background-position: 100% 50%;
+    }
+    100% {
+        transform: translateX(100%);
+        background-position: 0% 50%;
+    }
+}
+
+/* Pause animation on hover */
+.sliding-title:hover {
+    animation-play-state: paused;
+}
+
 .about-text p {
     font-size: 1.1rem;
     color: var(--text-light);
