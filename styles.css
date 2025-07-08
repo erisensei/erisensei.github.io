@@ -982,7 +982,7 @@ body {
     /* Hero Section */
     .hero {
         min-height: 90vh;
-        padding: 2rem 0;
+        padding: 80px 0 2rem 0;
     }
 
     .hero-content {
