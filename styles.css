@@ -367,6 +367,12 @@ body {
     margin-bottom: 0.5rem;
 }
 
+/* Special styling for country flags */
+.stat:last-child .stat-number {
+    font-size: 1.8rem;
+    letter-spacing: 0.2rem;
+}
+
 .stat-label {
     font-size: 1rem;
     opacity: 0.9;

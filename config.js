@@ -24,7 +24,7 @@ const CONFIG = {
     stats: {
         lessons: "50+",
         experience: "3+",
-        countries: "🇯🇵 🇦🇺"
+        countries: "🇯🇵 🇦🇺 🇺🇸 🇨🇦 🇫🇯 🇪🇸 🇹🇭"
     },
     
     // Teaching Experience
