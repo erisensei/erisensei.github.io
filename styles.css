@@ -373,6 +373,57 @@ body {
     letter-spacing: 0.2rem;
 }
 
+/* Flag animation container */
+#flagsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+    min-height: 2.5rem;
+}
+
+/* Individual flag styling */
+.flag {
+    font-size: 1.8rem;
+    opacity: 0;
+    transform: scale(0.5) translateY(20px);
+    animation: flagPop 0.6s ease-out forwards;
+    animation-delay: calc(var(--flag-index) * 0.2s);
+}
+
+/* Flag pop animation */
+@keyframes flagPop {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(20px);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2) translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Continuous loop animation */
+.flag.loop {
+    animation: flagPopLoop 3s ease-in-out infinite;
+    animation-delay: calc(var(--flag-index) * 0.3s);
+}
+
+@keyframes flagPopLoop {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8) translateY(5px);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1) translateY(-3px);
+    }
+}
+
 .stat-label {
     font-size: 1rem;
     opacity: 0.9;

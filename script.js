@@ -342,9 +342,30 @@ function loadRandomTestimonials() {
     });
 }
 
+// Flag animation functions
+function initializeFlagAnimation() {
+    const flags = document.querySelectorAll('.flag');
+    flags.forEach((flag, index) => {
+        flag.style.setProperty('--flag-index', index);
+    });
+}
+
+function startFlagLoop() {
+    const flags = document.querySelectorAll('.flag');
+    flags.forEach(flag => {
+        flag.classList.add('loop');
+    });
+}
+
 // Load testimonials when page loads
 document.addEventListener('DOMContentLoaded', () => {
     loadRandomTestimonials();
+    initializeFlagAnimation();
+    
+    // Start flag loop after initial animation
+    setTimeout(() => {
+        startFlagLoop();
+    }, 2000); // Wait for initial pop animation to complete
     
     // Also load testimonials when testimonials section comes into view
     const testimonialsSection = document.getElementById('testimonials');
@@ -359,6 +380,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { threshold: 0.1 });
         
         testimonialsObserver.observe(testimonialsSection);
+    }
+    
+    // Start flag animation when about section comes into view
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+        const aboutObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    initializeFlagAnimation();
+                    setTimeout(() => {
+                        startFlagLoop();
+                    }, 2000);
+                    aboutObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        aboutObserver.observe(aboutSection);
     }
 });
 
