@@ -6,15 +6,19 @@
 }
 
 :root {
-    --primary-color: #e74c3c;
-    --secondary-color: #2c3e50;
-    --accent-color: #f39c12;
-    --text-dark: #2c3e50;
-    --text-light: #7f8c8d;
-    --bg-light: #f8f9fa;
+    --primary-color: #8f9a6b;
+    --secondary-color: #6b7a4a;
+    --accent-color: #a67c52;
+    --text-dark: #2c3e2f;
+    --text-light: #5a6b4a;
+    --bg-light: #f7f6f2;
     --bg-white: #ffffff;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --bamboo-light: #e8f0e0;
+    --bamboo-medium: #c8d4b8;
+    --bamboo-dark: #9baa8a;
+    --bamboo-texture: #f0f4ec;
+    --shadow: 0 4px 6px rgba(139, 122, 74, 0.15);
+    --shadow-hover: 0 8px 25px rgba(139, 122, 74, 0.25);
     --border-radius: 12px;
     --transition: all 0.3s ease;
 }
@@ -24,6 +28,8 @@ body {
     line-height: 1.6;
     color: var(--text-dark);
     overflow-x: hidden;
+    background: linear-gradient(135deg, var(--bamboo-texture) 0%, var(--bamboo-light) 100%);
+    background-attachment: fixed;
 }
 
 .container {
@@ -52,7 +58,7 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), #c0392b);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
     box-shadow: var(--shadow);
 }
@@ -79,11 +85,12 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(240, 244, 236, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1rem 0;
     transition: var(--transition);
+    border-bottom: 1px solid var(--bamboo-medium);
 }
 
 .nav-container {
@@ -155,7 +162,7 @@ body {
     display: flex;
     align-items: center;
     position: relative;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--bamboo-medium) 0%, var(--bamboo-dark) 100%);
     overflow: hidden;
 }
 
