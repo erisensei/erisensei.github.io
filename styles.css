@@ -501,6 +501,20 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.testimonials-footer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.testimonials-footer .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
 }
 
 .testimonial-card {
@@ -525,6 +539,22 @@ body {
     color: var(--text-light);
     line-height: 1.6;
     font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.testimonial-english {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.testimonial-japanese {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    border-top: 1px solid #e1e8ed;
+    padding-top: 1rem;
+    margin-top: 1rem;
 }
 
 .testimonial-author {

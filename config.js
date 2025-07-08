@@ -22,9 +22,9 @@ const CONFIG = {
     
     // Statistics (update with actual numbers)
     stats: {
-        students: "Growing",
-        experience: 3,
-        lessons: "Healthcare"
+        lessons: "50+",
+        experience: "3+",
+        countries: "🇯🇵 🇦🇺"
     },
     
     // Teaching Experience
