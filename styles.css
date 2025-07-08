@@ -351,6 +351,30 @@ body {
     overflow: hidden;
 }
 
+.story-heading {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    font-family: 'Noto Sans JP', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.story-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 1px;
+}
+
 .about-story::before {
     content: '';
     position: absolute;
