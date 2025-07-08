@@ -69,6 +69,90 @@
         .back-link:hover {
             color: #7a2323;
         }
+
+        /* Mobile Responsive Design for Travel Gallery */
+        @media (max-width: 768px) {
+            .travel-header h1 {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+            
+            .travel-header p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+            
+            .travel-gallery {
+                max-width: 100%;
+                padding: 0 1rem 2rem 1rem;
+                gap: 2rem;
+            }
+            
+            .travel-entry {
+                padding: 1rem;
+                border-radius: 12px;
+            }
+            
+            .travel-photo {
+                max-width: 100%;
+                border-radius: 8px;
+                margin-bottom: 1rem;
+            }
+            
+            .travel-place {
+                font-size: 1rem;
+                margin-bottom: 0.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .travel-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .travel-header p {
+                font-size: 0.9rem;
+                padding: 0 0.5rem;
+            }
+            
+            .travel-gallery {
+                padding: 0 0.5rem 1.5rem 0.5rem;
+                gap: 1.5rem;
+            }
+            
+            .travel-entry {
+                padding: 0.8rem;
+                border-radius: 8px;
+            }
+            
+            .travel-photo {
+                border-radius: 6px;
+                margin-bottom: 0.8rem;
+            }
+            
+            .travel-place {
+                font-size: 0.9rem;
+            }
+            
+            .back-link {
+                margin: 1rem 0 0 1rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .travel-header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .travel-gallery {
+                gap: 1rem;
+            }
+            
+            .travel-entry {
+                padding: 0.6rem;
+            }
+        }
     </style>
 </head>
 <body class="travel-diary">
