@@ -169,107 +169,107 @@
         // Travel photos data with places
         const travelPhotos = [
             {
-                src: "/travel_photos/compressed/20230703_145353-01-01.jpg",
+                src: "travel_photos/compressed/20230703_145353-01-01.jpg",
                 alt: "Travel photo 20230703_145353-01-01",
                 place: "Sydney opera house"
             },
             {
-                src: "/travel_photos/compressed/20240422_154608-01.jpg",
+                src: "travel_photos/compressed/20240422_154608-01.jpg",
                 alt: "Travel photo 20240422_154608-01",
                 place: "Dreamworld, Gold Coast"
             },
             {
-                src: "/travel_photos/compressed/20240504_155050-01.jpg",
+                src: "travel_photos/compressed/20240504_155050-01.jpg",
                 alt: "Travel photo 20240504_155050-01",
                 place: "McLean, Taito city, Tokyo"
             },
             {
-                src: "/travel_photos/compressed/20240510_221229-01.jpg",
+                src: "travel_photos/compressed/20240510_221229-01.jpg",
                 alt: "Travel photo 20240510_221229-01",
                 place: "Night market, Ginza, Tokyo"
             },
             {
-                src: "/travel_photos/compressed/20240809_215552-01.jpg",
+                src: "travel_photos/compressed/20240809_215552-01.jpg",
                 alt: "Travel photo 20240809_215552-01",
                 place: "Shinkansen, en-route Tokyo to Kyoto"
             },
             {
-                src: "/travel_photos/compressed/20241215_140233.jpg",
+                src: "travel_photos/compressed/20241215_140233.jpg",
                 alt: "Travel photo 20241215_140233",
                 place: "Lions gate bridge, Vancouver"
             },
             {
-                src: "/travel_photos/compressed/20241215_140943.jpg",
+                src: "travel_photos/compressed/20241215_140943.jpg",
                 alt: "Travel photo 20241215_140943",
                 place: "Stanley park, Vancouver"
             },
             {
-                src: "/travel_photos/compressed/20241218_114609.jpg",
+                src: "travel_photos/compressed/20241218_114609.jpg",
                 alt: "Travel photo 20241218_114609",
                 place: "Pike place market, Seattle"
             },
             {
-                src: "/travel_photos/compressed/20241218_115726.jpg",
+                src: "travel_photos/compressed/20241218_115726.jpg",
                 alt: "Travel photo 20241218_115726",
                 place: "Seattle waterfront"
             },
             {
-                src: "/travel_photos/compressed/20241219_143445.jpg",
+                src: "travel_photos/compressed/20241219_143445.jpg",
                 alt: "Travel photo 20241219_143445",
                 place: "Mount rainier, Washington"
             },
             {
-                src: "/travel_photos/compressed/20241220_173301.jpg",
+                src: "travel_photos/compressed/20241220_173301.jpg",
                 alt: "Travel photo 20241220_173301",
                 place: "Golden gate bridge, San Francisco"
             },
             {
-                src: "/travel_photos/compressed/20241221_121152.jpg",
+                src: "travel_photos/compressed/20241221_121152.jpg",
                 alt: "Travel photo 20241221_121152",
                 place: "Stanford university, California"
             },
             {
-                src: "/travel_photos/compressed/20241222_150218.jpg",
+                src: "travel_photos/compressed/20241222_150218.jpg",
                 alt: "Travel photo 20241222_150218",
                 place: "Hawaii"
             },
             {
-                src: "/travel_photos/compressed/20241222_175406.jpg",
+                src: "travel_photos/compressed/20241222_175406.jpg",
                 alt: "Travel photo 20241222_175406",
                 place: "Waikiki beach, Hawaii"
             },
             {
-                src: "/travel_photos/compressed/20241222_175501.jpg",
+                src: "travel_photos/compressed/20241222_175501.jpg",
                 alt: "Travel photo 20241222_175501",
                 place: "Waikiki beach, Hawaii"
             },
             {
-                src: "/travel_photos/compressed/20250104_163558.jpg",
+                src: "travel_photos/compressed/20250104_163558.jpg",
                 alt: "Travel photo 20250104_163558",
                 place: "Emerald beach, New South Wales, Australia"
             },
             {
-                src: "/travel_photos/compressed/20250104_215109.jpg",
+                src: "travel_photos/compressed/20250104_215109.jpg",
                 alt: "Travel photo 20250104_215109",
                 place: "Somewhere under the blue sky"
             },
             {
-                src: "/travel_photos/compressed/20250302_090230.jpg",
+                src: "travel_photos/compressed/20250302_090230.jpg",
                 alt: "Travel photo 20250302_090230",
                 place: "Gordon's bay, Sydney"
             },
             {
-                src: "/travel_photos/compressed/20250309_140812.jpg",
+                src: "travel_photos/compressed/20250309_140812.jpg",
                 alt: "Travel photo 20250309_140812",
                 place: "Hermitae Foreshore Reserve, Sydney"
             },
             {
-                src: "/travel_photos/compressed/20250615_110902.jpg",
+                src: "travel_photos/compressed/20250615_110902.jpg",
                 alt: "Travel photo 20250615_110902",
                 place: "America bay, Sydney"
             },
             {
-                src: "/travel_photos/compressed/quicksquarenew_20235281741166-01.jpg",
+                src: "travel_photos/compressed/quicksquarenew_20235281741166-01.jpg",
                 alt: "Travel photo quicksquarenew_20235281741166-01",
                 place: "Sydney from the sky"
             }
@@ -288,7 +288,7 @@
         function createTravelEntry(photo) {
             return `
                 <div class="travel-entry">
-                    <img src="${photo.src}" class="travel-photo" alt="${photo.alt}">
+                    <img src="${photo.src}" class="travel-photo" alt="${photo.alt}" onerror="console.error('Failed to load image:', this.src)" onload="console.log('Successfully loaded:', this.src)">
                     <span class="travel-place">${photo.place}</span>
                 </div>
             `;
