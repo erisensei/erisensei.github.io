@@ -308,6 +308,52 @@ body {
     line-height: 1.7;
 }
 
+.about-story {
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.05), rgba(52, 152, 219, 0.05));
+    border-left: 4px solid var(--primary-color);
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 0 12px 12px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-story::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23e74c3c" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%233498db" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23f39c12" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    pointer-events: none;
+}
+
+.about-story p {
+    font-size: 1rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+    font-style: italic;
+}
+
+.about-story p:last-child {
+    margin-bottom: 0;
+}
+
+.about-story p:first-child::first-letter {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    float: left;
+    line-height: 1;
+    margin-right: 0.5rem;
+    margin-top: 0.2rem;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
 .about-features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
