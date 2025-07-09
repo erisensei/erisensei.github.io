@@ -67,18 +67,33 @@
 - "Japanese tutor Australia"
 - "Online Japanese tutor"
 - "Japanese lessons Sydney"
+- "Japanese online tutor"
+- "Preply Japanese tutor"
+- "Preply tutor"
+- "Japanese sensei"
+- "Preply sensei"
+- "Japanese language teacher"
+- "Japanese teacher"
+- "Japanese learning"
 
 ### Secondary Keywords (Medium Volume)
 - "Japanese tutor near me"
 - "Japanese teacher Sydney"
 - "Japanese language tutor"
 - "JLPT tutor Sydney"
+- "sensei"
+- "English to Japanese teaching"
 
 ### Long-tail Keywords (Lower Volume, Higher Conversion)
 - "Japanese tutor for beginners Sydney"
 - "Business Japanese tutor Australia"
 - "Japanese conversation tutor online"
 - "Japanese tutor with healthcare background"
+- "Japanese tutor for beginners online"
+- "online Japanese tutor for beginners"
+- "Japanese tutor preply"
+- "affordable Japanese tutor online"
+
 
 ## Monitoring & Analytics
 
@@ -99,19 +114,19 @@
 ## Content Calendar (Next 3 Months)
 
 ### Month 1
-- 4 blog posts (1 per week)
+- 2 blog posts (1 per two weeks)
 - Optimize existing content
 - Set up Google My Business
 - Create social media profiles
 
 ### Month 2
-- 4 more blog posts
+- 2 more blog posts
 - Start guest posting
 - Build local citations
 - Create YouTube content
 
 ### Month 3
-- 4 additional blog posts
+- 2 additional blog posts
 - Launch email newsletter
 - Partner with local businesses
 - Create downloadable resources
