@@ -522,4 +522,357 @@ function updateLessonCount(count) {
 function updateReviewCount(count) {
     // This could be used to update review count if we add it to the stats
     console.log('Live review count:', count);
-} 
+}
+
+// Flashcard Game Functionality
+const kanjiData = [
+    { kanji: '人', meaning: 'Person', pronunciation: 'ひと (hito)' },
+    { kanji: '水', meaning: 'Water', pronunciation: 'みず (mizu)' },
+    { kanji: '火', meaning: 'Fire', pronunciation: 'ひ (hi)' },
+    { kanji: '山', meaning: 'Mountain', pronunciation: 'やま (yama)' },
+    { kanji: '川', meaning: 'River', pronunciation: 'かわ (kawa)' },
+    { kanji: '木', meaning: 'Tree', pronunciation: 'き (ki)' },
+    { kanji: '日', meaning: 'Sun/Day', pronunciation: 'ひ (hi)' },
+    { kanji: '月', meaning: 'Moon', pronunciation: 'つき (tsuki)' },
+    { kanji: '大', meaning: 'Big', pronunciation: 'おお (oo)' },
+    { kanji: '小', meaning: 'Small', pronunciation: 'ちい (chii)' },
+    { kanji: '上', meaning: 'Up/Above', pronunciation: 'うえ (ue)' },
+    { kanji: '下', meaning: 'Down/Below', pronunciation: 'した (shita)' },
+    { kanji: '中', meaning: 'Middle/Center', pronunciation: 'なか (naka)' },
+    { kanji: '外', meaning: 'Outside', pronunciation: 'そと (soto)' },
+    { kanji: '内', meaning: 'Inside', pronunciation: 'うち (uchi)' },
+    { kanji: '前', meaning: 'Front/Before', pronunciation: 'まえ (mae)' },
+    { kanji: '後', meaning: 'Back/After', pronunciation: 'うしろ (ushiro)' },
+    { kanji: '左', meaning: 'Left', pronunciation: 'ひだり (hidari)' },
+    { kanji: '右', meaning: 'Right', pronunciation: 'みぎ (migi)' },
+    { kanji: '東', meaning: 'East', pronunciation: 'ひがし (higashi)' },
+    { kanji: '西', meaning: 'West', pronunciation: 'にし (nishi)' },
+    { kanji: '南', meaning: 'South', pronunciation: 'みなみ (minami)' },
+    { kanji: '北', meaning: 'North', pronunciation: 'きた (kita)' },
+    { kanji: '車', meaning: 'Car', pronunciation: 'くるま (kuruma)' },
+    { kanji: '電', meaning: 'Electricity', pronunciation: 'でん (den)' },
+    { kanji: '話', meaning: 'Talk/Speak', pronunciation: 'はな (hana)' },
+    { kanji: '見', meaning: 'See/Look', pronunciation: 'み (mi)' },
+    { kanji: '聞', meaning: 'Hear/Listen', pronunciation: 'き (ki)' },
+    { kanji: '書', meaning: 'Write', pronunciation: 'か (ka)' },
+    { kanji: '読', meaning: 'Read', pronunciation: 'よ (yo)' },
+    { kanji: '食', meaning: 'Eat', pronunciation: 'た (ta)' },
+    { kanji: '飲', meaning: 'Drink', pronunciation: 'の (no)' },
+    { kanji: '買', meaning: 'Buy', pronunciation: 'か (ka)' },
+    { kanji: '売', meaning: 'Sell', pronunciation: 'う (u)' },
+    { kanji: '来', meaning: 'Come', pronunciation: 'く (ku)' },
+    { kanji: '行', meaning: 'Go', pronunciation: 'い (i)' },
+    { kanji: '出', meaning: 'Go Out', pronunciation: 'で (de)' },
+    { kanji: '入', meaning: 'Enter', pronunciation: 'はい (hai)' },
+    { kanji: '開', meaning: 'Open', pronunciation: 'ひら (hira)' },
+    { kanji: '閉', meaning: 'Close', pronunciation: 'し (shi)' },
+    { kanji: '新', meaning: 'New', pronunciation: 'あたら (atarashi)' },
+    { kanji: '古', meaning: 'Old', pronunciation: 'ふる (furu)' },
+    { kanji: '高', meaning: 'High/Expensive', pronunciation: 'たか (taka)' },
+    { kanji: '安', meaning: 'Cheap/Safe', pronunciation: 'やす (yasu)' },
+    { kanji: '長', meaning: 'Long', pronunciation: 'なが (naga)' },
+    { kanji: '短', meaning: 'Short', pronunciation: 'みじか (mijika)' },
+    { kanji: '強', meaning: 'Strong', pronunciation: 'つよ (tsuyo)' },
+    { kanji: '弱', meaning: 'Weak', pronunciation: 'よわ (yowa)' },
+    { kanji: '好', meaning: 'Like', pronunciation: 'す (su)' },
+    { kanji: '悪', meaning: 'Bad', pronunciation: 'わる (waru)' },
+    { kanji: '美', meaning: 'Beautiful', pronunciation: 'うつく (utsukushi)' },
+    { kanji: '醜', meaning: 'Ugly', pronunciation: 'みにく (miniku)' },
+    { kanji: '早', meaning: 'Early', pronunciation: 'はや (haya)' },
+    { kanji: '遅', meaning: 'Late', pronunciation: 'おそ (oso)' },
+    { kanji: '多', meaning: 'Many', pronunciation: 'おお (oo)' },
+    { kanji: '少', meaning: 'Few', pronunciation: 'すこ (suko)' },
+    { kanji: '男', meaning: 'Man', pronunciation: 'おとこ (otoko)' },
+    { kanji: '女', meaning: 'Woman', pronunciation: 'おんな (onna)' },
+    { kanji: '子', meaning: 'Child', pronunciation: 'こ (ko)' },
+    { kanji: '父', meaning: 'Father', pronunciation: 'ちち (chichi)' },
+    { kanji: '母', meaning: 'Mother', pronunciation: 'はは (haha)' },
+    { kanji: '兄', meaning: 'Older Brother', pronunciation: 'あに (ani)' },
+    { kanji: '弟', meaning: 'Younger Brother', pronunciation: 'おとうと (otouto)' },
+    { kanji: '姉', meaning: 'Older Sister', pronunciation: 'あね (ane)' },
+    { kanji: '妹', meaning: 'Younger Sister', pronunciation: 'いもうと (imouto)' },
+    { kanji: '友', meaning: 'Friend', pronunciation: 'とも (tomo)' },
+    { kanji: '先', meaning: 'Previous/First', pronunciation: 'さき (saki)' },
+    { kanji: '生', meaning: 'Life/Live', pronunciation: 'い (i)' },
+    { kanji: '死', meaning: 'Death', pronunciation: 'し (shi)' },
+    { kanji: '学', meaning: 'Study/Learn', pronunciation: 'まな (mana)' },
+    { kanji: '校', meaning: 'School', pronunciation: 'こう (kou)' }
+];
+
+let currentCardIndex = 0;
+let correctAnswers = 0;
+let currentAnswer = '';
+let selectedOption = null;
+let gameCards = [];
+let currentGameCards = [];
+let gameInProgress = false;
+
+function initializeFlashcardGame() {
+    console.log('Initializing flashcard game...');
+    
+    // Wait a bit to ensure DOM is fully loaded
+    setTimeout(() => {
+        const flashcard = document.getElementById('flashcard');
+        const nextButton = document.getElementById('next-card');
+        const multipleChoiceOptions = document.getElementById('multiple-choice-options');
+        const answerFeedback = document.getElementById('answer-feedback');
+        
+        console.log('Elements found:', {
+            flashcard: !!flashcard,
+            nextButton: !!nextButton,
+            multipleChoiceOptions: !!multipleChoiceOptions,
+            answerFeedback: !!answerFeedback
+        });
+        
+        if (!flashcard || !nextButton || !multipleChoiceOptions) {
+            console.error('Missing required elements for game initialization');
+            return;
+        }
+        
+            // Initialize game
+    console.log('About to start new game...');
+    startNewGame();
+    console.log('Game initialization complete');
+        
+        // Next card functionality
+        nextButton.addEventListener('click', () => {
+            if (currentCardIndex < 9) {
+                // Move to next card
+                currentCardIndex++;
+                loadCard(currentCardIndex);
+                resetCardState();
+            } else {
+                // Game finished
+                finishGame();
+            }
+        });
+        
+            // Click on card to flip (for viewing answer)
+    const handleCardFlip = () => {
+        flashcard.classList.toggle('flipped');
+    };
+    
+    flashcard.addEventListener('click', handleCardFlip);
+    flashcard.addEventListener('touchend', handleCardFlip);
+    }, 100);
+}
+
+function startNewGame() {
+    console.log('kanjiData length:', kanjiData.length);
+    
+    // Shuffle and select 10 random cards
+    currentGameCards = shuffleArray([...kanjiData]).slice(0, 10);
+    currentCardIndex = 0;
+    correctAnswers = 0;
+    gameInProgress = true;
+    
+    console.log('Starting new game with', currentGameCards.length, 'cards');
+    
+    // Load first card
+    loadCard(0);
+    resetCardState();
+    updateStats();
+}
+
+function finishGame() {
+    gameInProgress = false;
+    const accuracy = Math.round((correctAnswers / 10) * 100);
+    
+    // Show final results
+    showFeedback(`Game Complete! Your score: ${correctAnswers}/10 (${accuracy}%)`, 'correct');
+    
+    // Reset game after 3 seconds
+    setTimeout(() => {
+        startNewGame();
+    }, 3000);
+}
+
+function loadCard(index) {
+    console.log('Loading card at index:', index);
+    
+    const kanjiElement = document.getElementById('kanji-character');
+    const answerElement = document.getElementById('answer-text');
+    const pronunciationElement = document.getElementById('pronunciation');
+    const multipleChoiceOptions = document.getElementById('multiple-choice-options');
+    
+    console.log('Elements found:', {
+        kanjiElement: !!kanjiElement,
+        answerElement: !!answerElement,
+        pronunciationElement: !!pronunciationElement,
+        multipleChoiceOptions: !!multipleChoiceOptions
+    });
+    
+    if (kanjiElement && answerElement && pronunciationElement && multipleChoiceOptions) {
+        const card = currentGameCards[index];
+        console.log('Card data:', card);
+        
+        kanjiElement.textContent = card.kanji;
+        answerElement.textContent = card.meaning;
+        pronunciationElement.textContent = card.pronunciation;
+        currentAnswer = card.meaning;
+        
+        // Generate multiple choice options
+        generateMultipleChoiceOptions(card, multipleChoiceOptions);
+    } else {
+        console.error('Missing required elements for card loading');
+    }
+}
+
+function generateMultipleChoiceOptions(correctCard, container) {
+    console.log('Generating options for card:', correctCard);
+    console.log('Container element:', container);
+    console.log('Container innerHTML before:', container.innerHTML);
+    
+    // Get 2 random wrong answers from other cards
+    const otherCards = kanjiData.filter(card => card.meaning !== correctCard.meaning);
+    const shuffledOthers = shuffleArray([...otherCards]);
+    const wrongOptions = shuffledOthers.slice(0, 2).map(card => card.meaning);
+    
+    // Combine correct and wrong options, then shuffle
+    const allOptions = [correctCard.meaning, ...wrongOptions];
+    const shuffledOptions = shuffleArray([...allOptions]);
+    
+    console.log('Options:', shuffledOptions);
+    
+    // Clear container
+    container.innerHTML = '';
+    console.log('Container innerHTML after clearing:', container.innerHTML);
+    
+    // Create option buttons
+    shuffledOptions.forEach((option, index) => {
+        const optionButton = document.createElement('div');
+        optionButton.className = 'multiple-choice-option';
+        optionButton.textContent = option;
+        optionButton.dataset.option = option;
+
+        
+        // Handle both click and touch events for better mobile support
+        const handleSelection = () => {
+            if (!gameInProgress) return;
+            
+            // Remove previous selection
+            container.querySelectorAll('.multiple-choice-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Select this option
+            optionButton.classList.add('selected');
+            selectedOption = option;
+            
+            // Check answer
+            checkMultipleChoiceAnswer(option, correctCard.meaning);
+        };
+        
+        optionButton.addEventListener('click', handleSelection);
+        optionButton.addEventListener('touchend', handleSelection);
+        
+        container.appendChild(optionButton);
+        console.log('Added option button:', option);
+    });
+    
+    console.log('Container innerHTML after adding buttons:', container.innerHTML);
+    console.log('Created', shuffledOptions.length, 'option buttons');
+}
+
+function checkMultipleChoiceAnswer(selectedAnswer, correctAnswer) {
+    const multipleChoiceOptions = document.getElementById('multiple-choice-options');
+    const options = multipleChoiceOptions.querySelectorAll('.multiple-choice-option');
+    
+    // Disable all options
+    options.forEach(option => {
+        option.style.pointerEvents = 'none';
+    });
+    
+    if (selectedAnswer === correctAnswer) {
+        // Correct answer
+        correctAnswers++;
+        options.forEach(option => {
+            if (option.dataset.option === selectedAnswer) {
+                option.classList.add('correct');
+            }
+        });
+        showFeedback('Correct! 🎉', 'correct');
+    } else {
+        // Wrong answer
+        options.forEach(option => {
+            if (option.dataset.option === selectedAnswer) {
+                option.classList.add('incorrect');
+            } else if (option.dataset.option === correctAnswer) {
+                option.classList.add('correct');
+            }
+        });
+        showFeedback(`Incorrect. The correct answer is: ${correctAnswer}`, 'incorrect');
+    }
+    
+    updateStats();
+}
+
+function resetCardState() {
+    const flashcard = document.getElementById('flashcard');
+    const multipleChoiceOptions = document.getElementById('multiple-choice-options');
+    const answerFeedback = document.getElementById('answer-feedback');
+    
+    // Reset flashcard
+    flashcard.classList.remove('flipped');
+    
+    // Reset options
+    if (multipleChoiceOptions) {
+        multipleChoiceOptions.querySelectorAll('.multiple-choice-option').forEach(option => {
+            option.classList.remove('selected', 'correct', 'incorrect');
+            option.style.pointerEvents = 'auto';
+        });
+    }
+    
+    // Clear feedback
+    hideFeedback();
+    
+    // Add animation to kanji character
+    const kanjiElement = document.getElementById('kanji-character');
+    if (kanjiElement) {
+        kanjiElement.style.animation = 'none';
+        setTimeout(() => {
+            kanjiElement.style.animation = 'kanjiPop 0.5s ease-out';
+        }, 10);
+    }
+}
+
+
+
+function updateStats() {
+    const currentCardElement = document.getElementById('current-card');
+    const correctAnswersElement = document.getElementById('correct-answers');
+    const accuracyElement = document.getElementById('accuracy');
+    
+    if (currentCardElement && correctAnswersElement && accuracyElement) {
+        currentCardElement.textContent = currentCardIndex + 1;
+        correctAnswersElement.textContent = correctAnswers;
+        
+        const accuracy = Math.round((correctAnswers / (currentCardIndex + 1)) * 100);
+        accuracyElement.textContent = accuracy + '%';
+    }
+}
+
+
+
+function showFeedback(message, type) {
+    const feedback = document.getElementById('answer-feedback');
+    if (feedback) {
+        feedback.textContent = message;
+        // Add spelling-warning class for correct answers with spelling errors
+        const hasSpellingWarning = type === 'correct' && message.includes('check your spelling');
+        feedback.className = `answer-feedback show ${type}${hasSpellingWarning ? ' spelling-warning' : ''}`;
+    }
+}
+
+function hideFeedback() {
+    const feedback = document.getElementById('answer-feedback');
+    if (feedback) {
+        feedback.className = 'answer-feedback';
+    }
+}
+
+// Initialize flashcard game when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded, initializing flashcard game...');
+    initializeFlashcardGame();
+}); 
