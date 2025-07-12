@@ -453,7 +453,7 @@ async function fetchPreplyStats() {
         
         // Parse the HTML to extract lesson count
         // Looking for specific patterns in the Preply profile
-        // Pattern 1: "47 lessons" in the stats section
+        // Pattern 1: "50 lessons" in the stats section
         const lessonMatch = html.match(/(\d+)\s*lessons?/i);
         
         // Pattern 2: Look for the specific stats section that shows lesson count
@@ -476,9 +476,9 @@ async function fetchPreplyStats() {
             updateLessonCount(lessonCount);
             console.log('Updated lesson count to:', lessonCount);
         } else {
-            // Fallback to the known value from the profile
-            updateLessonCount(47);
-            console.log('Using fallback lesson count: 47');
+            // Fallback to the current known value from the profile
+            updateLessonCount(50);
+            console.log('Using fallback lesson count: 50');
         }
         
         // Also try to extract review count
@@ -489,16 +489,21 @@ async function fetchPreplyStats() {
             console.log('Found review count:', reviewCount);
         }
         
+        return Promise.resolve();
+        
     } catch (error) {
         console.log('Could not fetch live stats from Preply:', error);
-        // Fallback to default values
-        updateLessonCount(47); // Default from the profile
+        // Fallback to current default values
+        updateLessonCount(50); // Current value from the profile
+        return Promise.reject(error);
     }
 }
 
 // Function to update lesson count in the stats section
 function updateLessonCount(count) {
     const lessonStat = document.getElementById('lessonCount');
+    const syncIndicator = document.querySelector('.sync-indicator');
+    
     if (lessonStat) {
         // Add a subtle animation to show the update
         lessonStat.style.transition = 'all 0.3s ease';
@@ -509,6 +514,20 @@ function updateLessonCount(count) {
             lessonStat.textContent = count + '+';
             lessonStat.style.transform = 'scale(1)';
             lessonStat.style.color = '';
+            
+            // Show sync indicator if this is a live update
+            if (syncIndicator && count > 50) {
+                syncIndicator.style.display = 'block';
+                syncIndicator.style.animation = 'fadeIn 0.5s ease-in';
+                
+                // Hide indicator after 3 seconds
+                setTimeout(() => {
+                    syncIndicator.style.animation = 'fadeOut 0.5s ease-out';
+                    setTimeout(() => {
+                        syncIndicator.style.display = 'none';
+                    }, 500);
+                }, 3000);
+            }
         }, 150);
         
         // Re-trigger counter animation if stats section is visible
@@ -954,4 +973,64 @@ document.addEventListener('DOMContentLoaded', () => {
             initializeFlashcardGame();
         }, 1000);
     });
-}); 
+    
+    // Initialize Preply stats sync
+    initializePreplyStatsSync();
+});
+
+// Function to initialize Preply stats synchronization
+function initializePreplyStatsSync() {
+    console.log('Initializing Preply stats sync...');
+    
+    // Fetch stats immediately when page loads
+    fetchPreplyStats();
+    
+    // Set up periodic sync every 30 minutes (1800000 ms)
+    setInterval(() => {
+        console.log('Syncing Preply stats...');
+        fetchPreplyStats();
+    }, 1800000); // 30 minutes
+    
+    // Also sync when the page becomes visible again
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) {
+            console.log('Page became visible, syncing stats...');
+            fetchPreplyStats();
+        }
+    });
+}
+
+// Manual sync function for testing and user control
+function manualSync() {
+    console.log('Manual sync requested...');
+    
+    const syncBtn = document.querySelector('.sync-btn');
+    if (syncBtn) {
+        // Add loading animation
+        syncBtn.style.animation = 'spin 1s linear infinite';
+        syncBtn.textContent = '⏳';
+        
+        // Fetch stats
+        fetchPreplyStats().then(() => {
+            // Reset button after sync
+            setTimeout(() => {
+                syncBtn.style.animation = 'none';
+                syncBtn.textContent = '✅';
+                
+                setTimeout(() => {
+                    syncBtn.textContent = '🔄';
+                }, 2000);
+            }, 1000);
+        }).catch(() => {
+            // Show error state
+            setTimeout(() => {
+                syncBtn.style.animation = 'none';
+                syncBtn.textContent = '❌';
+                
+                setTimeout(() => {
+                    syncBtn.textContent = '🔄';
+                }, 2000);
+            }, 1000);
+        });
+    }
+} 
