@@ -610,6 +610,10 @@ let gameInProgress = false;
 function initializeFlashcardGame() {
     console.log('Initializing flashcard game...');
     
+    // Check if we're on mobile
+    const isMobile = window.innerWidth <= 768;
+    console.log('Is mobile device:', isMobile);
+    
     // Wait a bit to ensure DOM is fully loaded
     setTimeout(() => {
         const flashcard = document.getElementById('flashcard');
@@ -629,10 +633,10 @@ function initializeFlashcardGame() {
             return;
         }
         
-            // Initialize game
-    console.log('About to start new game...');
-    startNewGame();
-    console.log('Game initialization complete');
+        // Initialize game
+        console.log('About to start new game...');
+        startNewGame();
+        console.log('Game initialization complete');
         
         // Next card functionality
         nextButton.addEventListener('click', () => {
@@ -647,18 +651,53 @@ function initializeFlashcardGame() {
             }
         });
         
-            // Click on card to flip (for viewing answer)
-    const handleCardFlip = () => {
-        flashcard.classList.toggle('flipped');
-    };
-    
-    flashcard.addEventListener('click', handleCardFlip);
-    flashcard.addEventListener('touchend', handleCardFlip);
-    }, 100);
+        // Click on card to flip (for viewing answer)
+        const handleCardFlip = () => {
+            flashcard.classList.toggle('flipped');
+        };
+        
+        flashcard.addEventListener('click', handleCardFlip);
+        flashcard.addEventListener('touchend', handleCardFlip);
+        
+        // Mobile-specific optimizations
+        if (isMobile) {
+            console.log('Applying mobile optimizations...');
+            
+            // Ensure flashcard is visible
+            flashcard.style.display = 'block';
+            flashcard.style.visibility = 'visible';
+            flashcard.style.opacity = '1';
+            
+            // Ensure multiple choice options are visible
+            if (multipleChoiceOptions) {
+                multipleChoiceOptions.style.display = 'flex';
+                multipleChoiceOptions.style.visibility = 'visible';
+                multipleChoiceOptions.style.opacity = '1';
+            }
+            
+            // Add mobile-specific touch handling
+            nextButton.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                if (currentCardIndex < 9) {
+                    currentCardIndex++;
+                    loadCard(currentCardIndex);
+                    resetCardState();
+                } else {
+                    finishGame();
+                }
+            });
+        }
+    }, isMobile ? 500 : 100);
 }
 
 function startNewGame() {
     console.log('kanjiData length:', kanjiData.length);
+    
+    // Check if kanjiData is available
+    if (!kanjiData || kanjiData.length === 0) {
+        console.error('kanjiData is not available');
+        return;
+    }
     
     // Shuffle and select 10 random cards
     currentGameCards = shuffleArray([...kanjiData]).slice(0, 10);
@@ -667,6 +706,7 @@ function startNewGame() {
     gameInProgress = true;
     
     console.log('Starting new game with', currentGameCards.length, 'cards');
+    console.log('First card:', currentGameCards[0]);
     
     // Load first card
     loadCard(0);
@@ -706,6 +746,23 @@ function loadCard(index) {
         const card = currentGameCards[index];
         console.log('Card data:', card);
         
+        // Ensure elements are visible
+        kanjiElement.style.display = 'block';
+        kanjiElement.style.visibility = 'visible';
+        kanjiElement.style.opacity = '1';
+        
+        answerElement.style.display = 'block';
+        answerElement.style.visibility = 'visible';
+        answerElement.style.opacity = '1';
+        
+        pronunciationElement.style.display = 'block';
+        pronunciationElement.style.visibility = 'visible';
+        pronunciationElement.style.opacity = '1';
+        
+        multipleChoiceOptions.style.display = 'flex';
+        multipleChoiceOptions.style.visibility = 'visible';
+        multipleChoiceOptions.style.opacity = '1';
+        
         kanjiElement.textContent = card.kanji;
         answerElement.textContent = card.meaning;
         pronunciationElement.textContent = card.pronunciation;
@@ -713,6 +770,12 @@ function loadCard(index) {
         
         // Generate multiple choice options
         generateMultipleChoiceOptions(card, multipleChoiceOptions);
+        
+        console.log('Card loaded successfully:', {
+            kanji: card.kanji,
+            meaning: card.meaning,
+            pronunciation: card.pronunciation
+        });
     } else {
         console.error('Missing required elements for card loading');
     }
@@ -874,5 +937,21 @@ function hideFeedback() {
 // Initialize flashcard game when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, initializing flashcard game...');
-    initializeFlashcardGame();
+    
+    // Add mobile detection
+    const isMobile = window.innerWidth <= 768;
+    console.log('Is mobile device:', isMobile);
+    
+    // Initialize with a slight delay to ensure all elements are ready
+    setTimeout(() => {
+        initializeFlashcardGame();
+    }, 500);
+    
+    // Also initialize on window load for mobile devices
+    window.addEventListener('load', () => {
+        console.log('Window loaded, re-initializing flashcard game...');
+        setTimeout(() => {
+            initializeFlashcardGame();
+        }, 1000);
+    });
 }); 

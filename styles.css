@@ -2235,29 +2235,78 @@ body::before {
     /* Critical mobile fixes for flashcard game */
     .flashcard-game {
         padding: 3rem 0;
+        position: relative;
+        z-index: 1;
     }
     
     .flashcard-container {
         max-width: 100%;
         padding: 0 1rem;
+        position: relative;
+        z-index: 2;
     }
     
     .flashcard-answer-section {
         background: rgba(255, 255, 255, 0.95);
         border-radius: 12px;
         margin: 1rem 0;
+        padding: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     
     .answer-input-container {
-        padding: 1rem;
+        padding: 0.5rem;
     }
     
     .flashcard-stats {
         margin: 1.5rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
     }
     
     .flashcard-cta {
         margin-top: 1.5rem;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Ensure flashcard is visible and functional */
+    .flashcard {
+        position: relative;
+        z-index: 3;
+        margin: 0 auto 2rem;
+    }
+    
+    .flashcard-front,
+    .flashcard-back {
+        position: relative;
+        z-index: 1;
+    }
+    
+    /* Ensure multiple choice options are visible */
+    .multiple-choice-options {
+        position: relative;
+        z-index: 2;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+    
+    .multiple-choice-option {
+        position: relative;
+        z-index: 1;
+        background: white;
+        border: 2px solid #e1e8ed;
+        margin-bottom: 0.5rem;
+    }
+    
+    .multiple-choice-option:hover {
+        border-color: var(--primary-color);
+        background: rgba(255, 107, 107, 0.05);
     }
 }
 
@@ -2499,6 +2548,8 @@ html {
         width: 280px;
         height: 180px;
         margin: 0 auto 1.5rem;
+        display: block !important;
+        visibility: visible !important;
     }
     
     .flashcard::before {
@@ -2508,6 +2559,17 @@ html {
         bottom: -5px;
         animation: cardGlow 4s ease-in-out infinite;
     }
+    
+    .flashcard-front,
+    .flashcard-back {
+        display: flex !important;
+        visibility: visible !important;
+    }
+    
+    .kanji-character {
+        display: block !important;
+        visibility: visible !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -2515,6 +2577,8 @@ html {
         width: 260px;
         height: 160px;
         margin: 0 auto 1rem;
+        display: block !important;
+        visibility: visible !important;
     }
     
     .flashcard::before {
@@ -2523,6 +2587,12 @@ html {
         right: -3px;
         bottom: -3px;
         animation: cardGlow 5s ease-in-out infinite;
+    }
+    
+    .flashcard-front,
+    .flashcard-back {
+        display: flex !important;
+        visibility: visible !important;
     }
 }
 
@@ -2899,6 +2969,50 @@ html {
     animation: kanjiPop 0.5s ease-out;
 }
 
+/* Ensure flashcard game is always visible and functional */
+.flashcard-game {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.flashcard-container {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.flashcard {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.flashcard-front,
+.flashcard-back {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.kanji-character {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.multiple-choice-options {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.multiple-choice-option {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
 /* Responsive adjustments for flashcard game */
 @media (max-width: 768px) {
     .kanji-character {
@@ -3119,9 +3233,34 @@ html {
         animation: none;
     }
     
-    /* Ensure flashcard game works without animations on mobile */
+    /* Keep essential animations for flashcard game */
     .flashcard-game {
         animation: none;
+    }
+    
+    /* Ensure flashcard animations work on mobile */
+    .flashcard-inner {
+        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .flashcard.flipped .flashcard-inner {
+        transform: rotateY(180deg);
+    }
+    
+    .kanji-character {
+        animation: kanjiPop 0.5s ease-out;
+    }
+    
+    .multiple-choice-option.correct {
+        animation: correctPulse 0.6s ease-out;
+    }
+    
+    .multiple-choice-option.incorrect {
+        animation: incorrectShake 0.6s ease-out;
+    }
+    
+    .multiple-choice-option.selected {
+        transform: scale(1.05);
     }
 }
 
