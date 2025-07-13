@@ -305,11 +305,13 @@ body::before {
     box-shadow: 0 4px 12px rgba(143, 154, 107, 0.3);
 }
 
-.hero-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .hero-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0 auto;
+    }
 
 .profile-image {
     width: 300px;
@@ -330,8 +332,8 @@ body::before {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    position: relative;
-    z-index: 2;
+    margin: 0 auto;
+    display: block;
 }
 
 @keyframes profilePulse {
@@ -2933,17 +2935,19 @@ body::before {
     }
 
     .hero-content {
-        grid-template-columns: 1fr;
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: none !important;
         text-align: center;
         gap: 2rem;
         justify-items: center;
         align-items: center;
-        display: flex;
-        flex-direction: column;
         justify-content: center;
-        align-items: center;
         min-height: 80vh;
         padding: 2rem 0;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
     }
 
     .hero-title {
@@ -3274,6 +3278,8 @@ body::before {
         margin: 0 auto;
         display: block;
         transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: static;
+        z-index: auto;
     }
     
     .profile-image:hover {
@@ -3547,6 +3553,8 @@ body::before {
         height: 200px;
         margin: 0 auto;
         display: block;
+        position: static;
+        z-index: auto;
     }
 
     .btn {
