@@ -318,6 +318,11 @@ body::before {
         order: 2;
         width: 100%;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1rem;
     }
 
 .profile-image {
@@ -2964,6 +2969,9 @@ body::before {
     .hero-title {
         font-size: 2.5rem;
         line-height: 1.1;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 0.5rem;
     }
 
     .hero-subtitle {
@@ -3255,6 +3263,17 @@ body::before {
         width: 100%;
     }
 
+    .hero-text {
+        order: 2;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1rem;
+    }
+    
     .hero-description {
         font-size: 0.95rem;
         margin-bottom: 1.5rem;
