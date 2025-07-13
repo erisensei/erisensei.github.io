@@ -311,6 +311,13 @@ body::before {
         align-items: center;
         width: 100%;
         margin: 0 auto;
+        order: 1;
+    }
+    
+    .hero-text {
+        order: 2;
+        width: 100%;
+        text-align: center;
     }
 
 .profile-image {
@@ -2938,6 +2945,7 @@ body::before {
         display: flex !important;
         flex-direction: column !important;
         grid-template-columns: none !important;
+        grid-template-areas: none !important;
         text-align: center;
         gap: 2rem;
         justify-items: center;
@@ -2948,6 +2956,9 @@ body::before {
         width: 100%;
         max-width: 100%;
         margin: 0 auto;
+        position: relative;
+        left: 0;
+        right: 0;
     }
 
     .hero-title {
@@ -3462,6 +3473,26 @@ body::before {
 
 /* Extra small devices */
 @media (max-width: 360px) {
+    .hero-content {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: none !important;
+        grid-template-areas: none !important;
+        text-align: center;
+        gap: 1.5rem;
+        justify-items: center;
+        align-items: center;
+        justify-content: center;
+        min-height: 70vh;
+        padding: 1rem 0;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        position: relative;
+        left: 0;
+        right: 0;
+    }
+    
     .hero-title {
         font-size: 1.8rem;
         text-align: center;
