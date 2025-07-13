@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Flashcard Game | Test Your Knowledge | Eri Naka</title>
+    <meta name="description" content="Test your Japanese knowledge with our interactive flashcard game featuring kanji, hiragana, and katakana. Fun and educational Japanese learning tool.">
+    <meta name="keywords" content="Japanese flashcard game, kanji quiz, hiragana test, katakana practice, Japanese learning game, interactive Japanese">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/flashcard-game.html">
+    <meta property="og:title" content="Japanese Flashcard Game | Test Your Knowledge">
+    <meta property="og:description" content="Test your Japanese knowledge with our interactive flashcard game featuring kanji, hiragana, and katakana.">
+    <meta property="og:image" content="https://yourwebsite.com/eri.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourwebsite.com/flashcard-game.html">
+    <meta property="twitter:title" content="Japanese Flashcard Game | Test Your Knowledge">
+    <meta property="twitter:description" content="Test your Japanese knowledge with our interactive flashcard game featuring kanji, hiragana, and katakana.">
+    <meta property="twitter:image" content="https://yourwebsite.com/eri.jpeg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="eri.jpeg">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Flashcard Game Page Specific Styles */
+        .flashcard-game-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .flashcard-game-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(255, 107, 107, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(78, 205, 196, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(165, 94, 234, 0.1) 0%, transparent 50%);
+            animation: gameGlow 8s ease-in-out infinite alternate;
+        }
+        
+        .game-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .game-header h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .game-header p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .back-to-home {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .back-to-home:hover {
+            color: #4ecdc4;
+            transform: translateX(-5px);
+        }
+        
+        .game-container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        @media (max-width: 768px) {
+            .game-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .game-header p {
+                font-size: 1rem;
+            }
+            
+            .back-to-home {
+                top: 1rem;
+                left: 1rem;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .game-header h1 {
+                font-size: 2rem;
+            }
+            
+            .game-header p {
+                font-size: 0.9rem;
+            }
+            
+            .back-to-home {
+                top: 0.5rem;
+                left: 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flashcard-game-page">
+        <a href="index.html" class="back-to-home">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        
+        <div class="container">
+            <div class="game-header">
+                <h1>Japanese Flashcard Game</h1>
+                <p>Test your Japanese knowledge with our interactive flashcard game featuring kanji, hiragana, and katakana!</p>
+            </div>
+            
+            <div class="game-container">
+                <!-- Script Toggle Buttons -->
+                <div class="script-toggle-container">
+                    <div class="script-toggles" id="script-toggles">
+                        <!-- Script toggle buttons will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="flashcard-container">
+                    <div class="flashcard" id="flashcard">
+                        <div class="flashcard-inner" id="flashcard-inner">
+                            <div class="flashcard-front" id="flashcard-front">
+                                <div class="kanji-character" id="kanji-character">人</div>
+                                <div class="flashcard-hint">What does this kanji mean?</div>
+                            </div>
+                            <div class="flashcard-back" id="flashcard-back">
+                                <div class="answer-text" id="answer-text">Person</div>
+                                <div class="pronunciation" id="pronunciation">ひと (hito)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flashcard-answer-section">
+                        <div class="answer-input-container">
+                            <label class="answer-label">What does this kanji mean?</label>
+                            <div class="multiple-choice-options" id="multiple-choice-options">
+                                <!-- Options will be populated by JavaScript -->
+                            </div>
+                            <div class="answer-feedback" id="answer-feedback"></div>
+                        </div>
+                    </div>
+                    <div class="flashcard-controls">
+                        <button class="btn btn-primary" id="next-card">Next Card</button>
+                    </div>
+                    <div class="flashcard-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="current-card">1</span>
+                            <span class="stat-label">Card</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="correct-answers">0</span>
+                            <span class="stat-label">Score</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="accuracy">0%</span>
+                            <span class="stat-label">Accuracy</span>
+                        </div>
+                    </div>
+                    <div class="flashcard-cta">
+                        <p>Want to learn more kanji? Start your Japanese learning journey with me!</p>
+                        <a href="index.html#contact" class="btn btn-primary">Start Learning Today</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Initialize the flashcard game when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the game
+            if (typeof initializeFlashcardGame === 'function') {
+                initializeFlashcardGame();
+            }
+        });
+    </script>
+</body>
+</html> 

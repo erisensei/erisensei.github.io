@@ -760,7 +760,7 @@ function initializeFlashcardGame() {
         console.log('Game initialization complete');
         
         // Next card functionality
-        nextButton.addEventListener('click', () => {
+        const handleNextCard = () => {
             if (currentCardIndex < 9) {
                 // Move to next card
                 currentCardIndex++;
@@ -770,7 +770,14 @@ function initializeFlashcardGame() {
                 // Game finished
                 finishGame();
             }
-        });
+        };
+        
+        // Clear all existing event listeners by cloning the button
+        const newNextButton = nextButton.cloneNode(true);
+        nextButton.parentNode.replaceChild(newNextButton, nextButton);
+        
+        // Add event listener to the new button
+        newNextButton.addEventListener('click', handleNextCard);
         
         // Click on card to flip (for viewing answer)
         const handleCardFlip = () => {
@@ -796,16 +803,16 @@ function initializeFlashcardGame() {
                 multipleChoiceOptions.style.opacity = '1';
             }
             
-            // Add mobile-specific touch handling
-            nextButton.addEventListener('touchend', (e) => {
+            // Add mobile-specific touch handling (prevent double triggering)
+            newNextButton.addEventListener('touchend', (e) => {
                 e.preventDefault();
-                if (currentCardIndex < 9) {
-                    currentCardIndex++;
-                    loadCard(currentCardIndex);
-                    resetCardState();
-                } else {
-                    finishGame();
-                }
+                // Remove the click event temporarily to prevent double triggering
+                newNextButton.removeEventListener('click', handleNextCard);
+                handleNextCard();
+                // Re-add the click event after a short delay
+                setTimeout(() => {
+                    newNextButton.addEventListener('click', handleNextCard);
+                }, 100);
             });
         }
     }, isMobile ? 500 : 100);
@@ -1169,6 +1176,8 @@ function hideFeedback() {
 }
 
 // Initialize flashcard game when DOM is loaded
+let gameInitialized = false;
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, initializing flashcard game...');
     
@@ -1178,15 +1187,21 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize with a slight delay to ensure all elements are ready
     setTimeout(() => {
-        initializeFlashcardGame();
+        if (!gameInitialized) {
+            initializeFlashcardGame();
+            gameInitialized = true;
+        }
     }, 500);
     
-    // Also initialize on window load for mobile devices
+    // Also initialize on window load for mobile devices (but only if not already initialized)
     window.addEventListener('load', () => {
-        console.log('Window loaded, re-initializing flashcard game...');
-        setTimeout(() => {
-            initializeFlashcardGame();
-        }, 1000);
+        console.log('Window loaded, checking flashcard game...');
+        if (!gameInitialized) {
+            setTimeout(() => {
+                initializeFlashcardGame();
+                gameInitialized = true;
+            }, 1000);
+        }
     });
     
     // Initialize Preply stats sync

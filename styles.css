@@ -357,6 +357,7 @@ body::before {
     height: 100%;
     pointer-events: none;
     overflow: hidden;
+    z-index: 1;
 }
 
 .element {
@@ -369,6 +370,8 @@ body::before {
     opacity: 0.7;
     transition: opacity 0.3s ease;
     z-index: 1;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .element:hover {
@@ -2947,23 +2950,35 @@ body::before {
     /* Floating elements - optimize for mobile */
     .floating-elements {
         opacity: 0.3;
+        position: relative;
+        height: auto;
+        min-height: 100%;
     }
     
     .element {
         font-size: 1.5rem;
         animation-duration: 4s;
+        position: relative;
+        display: inline-block;
+        margin: 0.5rem;
     }
     
     .japanese-element {
         font-size: 1.8rem;
         opacity: 0.4;
         animation-duration: 5s;
+        position: relative;
+        display: inline-block;
+        margin: 0.5rem;
     }
     
     .element {
         font-size: 2.2rem;
         opacity: 0.5;
         animation-duration: 4s;
+        position: relative;
+        display: inline-block;
+        margin: 0.5rem;
     }
 }
 
@@ -3003,12 +3018,40 @@ body::before {
         font-size: 1.4rem;
         opacity: 0.3;
         animation-duration: 6s;
+        position: relative;
+        display: inline-block;
+        margin: 0.3rem;
+        transform: translateZ(0);
     }
     
     .element {
         font-size: 1.8rem;
         opacity: 0.4;
         animation-duration: 5s;
+        position: relative;
+        display: inline-block;
+        margin: 0.3rem;
+        transform: translateZ(0);
+    }
+    
+    /* Fix floating elements for mobile */
+    .floating-elements,
+    .floating-elements-about,
+    .floating-elements-services,
+    .floating-elements-testimonials,
+    .floating-elements-contact,
+    .floating-elements-faq,
+    .floating-elements-game,
+    .floating-elements-travel {
+        position: relative;
+        height: auto;
+        min-height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        gap: 0.5rem;
     }
 
     /* Navigation */
@@ -3529,6 +3572,31 @@ body::before {
         font-size: 1rem;
         opacity: 0.2;
         animation-duration: 8s;
+        position: relative;
+        display: inline-block;
+        margin: 0.2rem;
+        transform: translateZ(0);
+    }
+    
+    /* Ensure floating elements work properly on very small screens */
+    .floating-elements,
+    .floating-elements-about,
+    .floating-elements-services,
+    .floating-elements-testimonials,
+    .floating-elements-contact,
+    .floating-elements-faq,
+    .floating-elements-game,
+    .floating-elements-travel {
+        position: relative;
+        height: auto;
+        min-height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+        gap: 0.3rem;
+        overflow: visible;
     }
 }
 
@@ -4017,32 +4085,46 @@ html {
     position: relative;
     overflow: hidden;
 }
+    position: relative;
+    overflow: hidden;
+}
 
 /* Script Toggle Styles */
 .script-toggle-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 2rem;
+    align-items: center;
+    margin: 2rem auto 8rem auto;
+    padding: 0 1rem;
+    width: 100%;
+    max-width: 600px;
 }
 
 .script-toggles {
     display: flex;
-    gap: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.5rem;
-    border-radius: 50px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 1rem 1.5rem;
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .script-toggle-btn {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 25px;
-    background: transparent;
+    padding: 0.8rem 1.2rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
     color: white;
     font-weight: 600;
     font-size: 14px;
@@ -4050,6 +4132,8 @@ html {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    min-width: 100px;
+    backdrop-filter: blur(10px);
 }
 
 .script-toggle-btn::before {
@@ -4068,21 +4152,23 @@ html {
 }
 
 .script-toggle-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .script-toggle-btn.active {
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+    border-color: #ff6b6b;
     color: white;
-    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
     transform: translateY(-2px);
 }
 
 .script-toggle-btn.active:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.5);
 }
 
 .script-icon {
@@ -4099,41 +4185,61 @@ html {
 
 /* Mobile responsive for script toggles */
 @media (max-width: 768px) {
+    .script-toggle-container {
+        margin: 1.5rem auto 6rem auto;
+        padding: 0 0.5rem;
+        max-width: 450px;
+    }
+    
     .script-toggles {
-        flex-direction: column;
-        gap: 0.5rem;
+        flex-direction: row;
+        gap: 1rem;
+        padding: 0.75rem 1rem;
         border-radius: 20px;
-        padding: 0.75rem;
+        max-width: 400px;
+        margin: 0 auto;
     }
     
     .script-toggle-btn {
-        padding: 1rem 1.5rem;
+        padding: 0.7rem 1rem;
         border-radius: 15px;
-        font-size: 16px;
+        font-size: 13px;
+        min-width: 80px;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-appearance: none;
     }
     
     .script-icon {
-        font-size: 20px;
+        font-size: 16px;
     }
     
     .script-name {
-        font-size: 16px;
+        font-size: 13px;
     }
 }
 
 @media (max-width: 480px) {
     .script-toggle-container {
-        margin-bottom: 1.5rem;
+        margin: 1rem auto 5rem auto;
+        max-width: 320px;
     }
     
     .script-toggles {
-        width: 100%;
-        max-width: 300px;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.75rem;
+        max-width: 280px;
+        margin: 0 auto;
     }
     
     .script-toggle-btn {
-        padding: 0.75rem 1rem;
+        padding: 0.8rem 1.2rem;
         font-size: 14px;
+        min-width: 120px;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-appearance: none;
     }
     
     .script-icon {
@@ -4169,6 +4275,7 @@ html {
     text-align: center;
     position: relative;
     z-index: 2;
+    padding: 2rem 1rem 0 1rem;
 }
 
 .flashcard {
@@ -4179,6 +4286,11 @@ html {
     cursor: pointer;
     touch-action: manipulation;
     position: relative;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .flashcard::before {
@@ -4207,6 +4319,16 @@ html {
         margin: 0 auto 1.5rem;
         display: block !important;
         visibility: visible !important;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
     }
     
     .flashcard::before {
@@ -4215,17 +4337,25 @@ html {
         right: -5px;
         bottom: -5px;
         animation: cardGlow 4s ease-in-out infinite;
+        -webkit-animation: cardGlow 4s ease-in-out infinite;
     }
     
     .flashcard-front,
     .flashcard-back {
         display: flex !important;
         visibility: visible !important;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
     
     .kanji-character {
         display: block !important;
         visibility: visible !important;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 }
 
@@ -4236,6 +4366,16 @@ html {
         margin: 0 auto 1rem;
         display: block !important;
         visibility: visible !important;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
     }
     
     .flashcard::before {
@@ -4244,12 +4384,16 @@ html {
         right: -3px;
         bottom: -3px;
         animation: cardGlow 5s ease-in-out infinite;
+        -webkit-animation: cardGlow 5s ease-in-out infinite;
     }
     
     .flashcard-front,
     .flashcard-back {
         display: flex !important;
         visibility: visible !important;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
 }
 
@@ -4259,13 +4403,23 @@ html {
     height: 100%;
     text-align: center;
     transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: -moz-transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
     transform-style: preserve-3d;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-hover);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .flashcard.flipped .flashcard-inner {
     transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
 }
 
 .flashcard-front,
@@ -4273,6 +4427,8 @@ html {
     position: absolute;
     width: 100%;
     height: 100%;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
     backface-visibility: hidden;
     display: flex;
     flex-direction: column;
@@ -4282,10 +4438,17 @@ html {
     border-radius: var(--border-radius);
     padding: 2rem;
     box-shadow: var(--shadow);
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 .flashcard-back {
     transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
     background: var(--gradient-primary);
     color: white;
 }
@@ -4357,7 +4520,8 @@ html {
         max-width: 100%;
         margin: 0 1rem;
         min-height: 120px;
-        gap: 0.5rem;
+        gap: 0.75rem;
+        padding: 8px;
     }
 }
 
@@ -4365,7 +4529,8 @@ html {
     .multiple-choice-options {
         margin: 0 0.5rem;
         min-height: 100px;
-        gap: 0.4rem;
+        gap: 0.6rem;
+        padding: 6px;
     }
 }
 
@@ -4381,8 +4546,13 @@ html {
     transition: var(--transition);
     text-align: center;
     font-weight: 500;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-appearance: none;
     position: relative;
     overflow: hidden;
     min-height: 44px;
@@ -4395,16 +4565,22 @@ html {
 @media (max-width: 768px) {
     .multiple-choice-option {
         font-size: 0.9rem;
-        padding: 12px 16px;
-        min-height: 44px;
+        padding: 14px 16px;
+        min-height: 48px;
+        border-radius: 10px;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
     }
 }
 
 @media (max-width: 480px) {
     .multiple-choice-option {
-        font-size: 0.85rem;
-        padding: 10px 12px;
-        min-height: 40px;
+        font-size: 0.9rem;
+        padding: 12px 14px;
+        min-height: 44px;
+        border-radius: 8px;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
     }
 }
 
@@ -4555,11 +4731,24 @@ html {
     gap: 1rem;
     justify-content: center;
     margin-bottom: 2rem;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .flashcard-controls .btn {
     min-height: 44px; /* Minimum touch target size */
     min-width: 44px;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .flashcard-stats {
@@ -4631,12 +4820,24 @@ html {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .flashcard-container {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .flashcard {
@@ -4662,34 +4863,64 @@ html {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .multiple-choice-option {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* Responsive adjustments for flashcard game */
 @media (max-width: 768px) {
     .kanji-character {
         font-size: 3rem;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
     
     .answer-text {
         font-size: 1.5rem;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
     
     .flashcard-controls {
         flex-direction: column;
         align-items: center;
         gap: 0.75rem;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
     }
     
     .flashcard-controls .btn {
         width: 100%;
         max-width: 200px;
         min-height: 44px;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-appearance: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
     
     .flashcard-stats {
@@ -4714,15 +4945,20 @@ html {
     /* Optimize animations for mobile */
     .multiple-choice-option.correct {
         animation: correctPulse 0.8s ease-out;
+        -webkit-animation: correctPulse 0.8s ease-out;
     }
     
     .multiple-choice-option.incorrect {
         animation: incorrectShake 0.8s ease-out;
+        -webkit-animation: incorrectShake 0.8s ease-out;
     }
     
     /* Reduce hover effects on mobile */
     .multiple-choice-option:hover {
         transform: translateY(-1px) scale(1.01);
+        -webkit-transform: translateY(-1px) scale(1.01);
+        -moz-transform: translateY(-1px) scale(1.01);
+        -ms-transform: translateY(-1px) scale(1.01);
     }
 }
 
@@ -4730,21 +4966,38 @@ html {
 @media (max-width: 480px) {
     .kanji-character {
         font-size: 2.5rem;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
     
     .answer-text {
         font-size: 1.3rem;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
     
     .flashcard-controls .btn {
         max-width: 180px;
         font-size: 0.9rem;
-        padding: 10px 16px;
-        min-height: 44px;
+        padding: 12px 18px;
+        min-height: 48px;
+        border-radius: 25px;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-appearance: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
     
     .stat-item {
-        padding: 0.5rem 0.75rem;
+        padding: 0.75rem 1rem;
+        border-radius: 12px;
     }
     
     .stat-item .stat-number {
@@ -4765,8 +5018,12 @@ html {
     
     .flashcard-cta .btn {
         font-size: 0.9rem;
-        padding: 10px 16px;
-        min-height: 44px;
+        padding: 12px 18px;
+        min-height: 48px;
+        border-radius: 25px;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-appearance: none;
     }
     
     .answer-feedback {
@@ -4778,6 +5035,31 @@ html {
     /* Optimize animations for very small screens */
     .multiple-choice-option:hover {
         transform: translateY(0) scale(1.005);
+        -webkit-transform: translateY(0) scale(1.005);
+        -moz-transform: translateY(0) scale(1.005);
+        -ms-transform: translateY(0) scale(1.005);
+    }
+    
+    /* Ensure proper touch targets */
+    .flashcard {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    .multiple-choice-option {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-appearance: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 }
     
@@ -4898,26 +5180,37 @@ html {
     /* Ensure flashcard animations work on mobile */
     .flashcard-inner {
         transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        -moz-transition: -moz-transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .flashcard.flipped .flashcard-inner {
         transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
     }
     
     .kanji-character {
         animation: kanjiPop 0.5s ease-out;
+        -webkit-animation: kanjiPop 0.5s ease-out;
     }
     
     .multiple-choice-option.correct {
         animation: correctPulse 0.6s ease-out;
+        -webkit-animation: correctPulse 0.6s ease-out;
     }
     
     .multiple-choice-option.incorrect {
         animation: incorrectShake 0.6s ease-out;
+        -webkit-animation: incorrectShake 0.6s ease-out;
     }
     
     .multiple-choice-option.selected {
         transform: scale(1.05);
+        -webkit-transform: scale(1.05);
+        -moz-transform: scale(1.05);
+        -ms-transform: scale(1.05);
     }
 }
 
