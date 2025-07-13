@@ -312,6 +312,7 @@ body::before {
         width: 100%;
         margin: 0 auto;
         order: 1;
+        flex-shrink: 0;
     }
     
     .hero-text {
@@ -323,6 +324,7 @@ body::before {
         align-items: center;
         justify-content: center;
         padding: 0 1rem;
+        flex-shrink: 0;
     }
 
 .profile-image {
@@ -2964,6 +2966,7 @@ body::before {
         flex-direction: column !important;
         grid-template-columns: none !important;
         grid-template-areas: none !important;
+        grid-template-rows: none !important;
         text-align: center;
         gap: 2rem;
         justify-items: center;
@@ -2977,6 +2980,7 @@ body::before {
         position: relative;
         left: 0;
         right: 0;
+        overflow: hidden;
     }
 
     .hero-title {
@@ -3017,17 +3021,17 @@ body::before {
     }
     
     .profile-image:hover {
-        transform: scale(1.12) translateY(-6px);
+        transform: none;
         box-shadow: 
-            0 15px 40px rgba(0, 0, 0, 0.4),
-            0 0 0 25px rgba(255, 107, 107, 0.25),
-            0 0 0 50px rgba(78, 205, 196, 0.25);
-        border-width: 5px;
-        border-color: rgba(255, 107, 107, 0.5);
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            0 0 0 20px rgba(255, 107, 107, 0.1),
+            0 0 0 40px rgba(78, 205, 196, 0.1);
+        border-width: 4px;
+        border-color: rgba(255, 255, 255, 0.3);
     }
     
     .profile-image:active {
-        transform: scale(1.06) translateY(-3px);
+        transform: none;
         transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     
@@ -3285,6 +3289,9 @@ body::before {
         align-items: center;
         justify-content: center;
         padding: 0 1rem;
+        flex-shrink: 0;
+        max-width: 100%;
+        margin: 0 auto;
     }
     
     .hero-description {
