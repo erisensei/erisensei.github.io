@@ -618,6 +618,105 @@ const kanjiData = [
     { kanji: '校', meaning: 'School', pronunciation: 'こう (kou)' }
 ];
 
+const hiraganaData = [
+    { character: 'あ', meaning: 'A', pronunciation: 'a' },
+    { character: 'い', meaning: 'I', pronunciation: 'i' },
+    { character: 'う', meaning: 'U', pronunciation: 'u' },
+    { character: 'え', meaning: 'E', pronunciation: 'e' },
+    { character: 'お', meaning: 'O', pronunciation: 'o' },
+    { character: 'か', meaning: 'KA', pronunciation: 'ka' },
+    { character: 'き', meaning: 'KI', pronunciation: 'ki' },
+    { character: 'く', meaning: 'KU', pronunciation: 'ku' },
+    { character: 'け', meaning: 'KE', pronunciation: 'ke' },
+    { character: 'こ', meaning: 'KO', pronunciation: 'ko' },
+    { character: 'さ', meaning: 'SA', pronunciation: 'sa' },
+    { character: 'し', meaning: 'SHI', pronunciation: 'shi' },
+    { character: 'す', meaning: 'SU', pronunciation: 'su' },
+    { character: 'せ', meaning: 'SE', pronunciation: 'se' },
+    { character: 'そ', meaning: 'SO', pronunciation: 'so' },
+    { character: 'た', meaning: 'TA', pronunciation: 'ta' },
+    { character: 'ち', meaning: 'CHI', pronunciation: 'chi' },
+    { character: 'つ', meaning: 'TSU', pronunciation: 'tsu' },
+    { character: 'て', meaning: 'TE', pronunciation: 'te' },
+    { character: 'と', meaning: 'TO', pronunciation: 'to' },
+    { character: 'な', meaning: 'NA', pronunciation: 'na' },
+    { character: 'に', meaning: 'NI', pronunciation: 'ni' },
+    { character: 'ぬ', meaning: 'NU', pronunciation: 'nu' },
+    { character: 'ね', meaning: 'NE', pronunciation: 'ne' },
+    { character: 'の', meaning: 'NO', pronunciation: 'no' },
+    { character: 'は', meaning: 'HA', pronunciation: 'ha' },
+    { character: 'ひ', meaning: 'HI', pronunciation: 'hi' },
+    { character: 'ふ', meaning: 'FU', pronunciation: 'fu' },
+    { character: 'へ', meaning: 'HE', pronunciation: 'he' },
+    { character: 'ほ', meaning: 'HO', pronunciation: 'ho' },
+    { character: 'ま', meaning: 'MA', pronunciation: 'ma' },
+    { character: 'み', meaning: 'MI', pronunciation: 'mi' },
+    { character: 'む', meaning: 'MU', pronunciation: 'mu' },
+    { character: 'め', meaning: 'ME', pronunciation: 'me' },
+    { character: 'も', meaning: 'MO', pronunciation: 'mo' },
+    { character: 'や', meaning: 'YA', pronunciation: 'ya' },
+    { character: 'ゆ', meaning: 'YU', pronunciation: 'yu' },
+    { character: 'よ', meaning: 'YO', pronunciation: 'yo' },
+    { character: 'ら', meaning: 'RA', pronunciation: 'ra' },
+    { character: 'り', meaning: 'RI', pronunciation: 'ri' },
+    { character: 'る', meaning: 'RU', pronunciation: 'ru' },
+    { character: 'れ', meaning: 'RE', pronunciation: 're' },
+    { character: 'ろ', meaning: 'RO', pronunciation: 'ro' },
+    { character: 'わ', meaning: 'WA', pronunciation: 'wa' },
+    { character: 'を', meaning: 'WO', pronunciation: 'wo' },
+    { character: 'ん', meaning: 'N', pronunciation: 'n' }
+];
+
+const katakanaData = [
+    { character: 'ア', meaning: 'A', pronunciation: 'a' },
+    { character: 'イ', meaning: 'I', pronunciation: 'i' },
+    { character: 'ウ', meaning: 'U', pronunciation: 'u' },
+    { character: 'エ', meaning: 'E', pronunciation: 'e' },
+    { character: 'オ', meaning: 'O', pronunciation: 'o' },
+    { character: 'カ', meaning: 'KA', pronunciation: 'ka' },
+    { character: 'キ', meaning: 'KI', pronunciation: 'ki' },
+    { character: 'ク', meaning: 'KU', pronunciation: 'ku' },
+    { character: 'ケ', meaning: 'KE', pronunciation: 'ke' },
+    { character: 'コ', meaning: 'KO', pronunciation: 'ko' },
+    { character: 'サ', meaning: 'SA', pronunciation: 'sa' },
+    { character: 'シ', meaning: 'SHI', pronunciation: 'shi' },
+    { character: 'ス', meaning: 'SU', pronunciation: 'su' },
+    { character: 'セ', meaning: 'SE', pronunciation: 'se' },
+    { character: 'ソ', meaning: 'SO', pronunciation: 'so' },
+    { character: 'タ', meaning: 'TA', pronunciation: 'ta' },
+    { character: 'チ', meaning: 'CHI', pronunciation: 'chi' },
+    { character: 'ツ', meaning: 'TSU', pronunciation: 'tsu' },
+    { character: 'テ', meaning: 'TE', pronunciation: 'te' },
+    { character: 'ト', meaning: 'TO', pronunciation: 'to' },
+    { character: 'ナ', meaning: 'NA', pronunciation: 'na' },
+    { character: 'ニ', meaning: 'NI', pronunciation: 'ni' },
+    { character: 'ヌ', meaning: 'NU', pronunciation: 'nu' },
+    { character: 'ネ', meaning: 'NE', pronunciation: 'ne' },
+    { character: 'ノ', meaning: 'NO', pronunciation: 'no' },
+    { character: 'ハ', meaning: 'HA', pronunciation: 'ha' },
+    { character: 'ヒ', meaning: 'HI', pronunciation: 'hi' },
+    { character: 'フ', meaning: 'FU', pronunciation: 'fu' },
+    { character: 'ヘ', meaning: 'HE', pronunciation: 'he' },
+    { character: 'ホ', meaning: 'HO', pronunciation: 'ho' },
+    { character: 'マ', meaning: 'MA', pronunciation: 'ma' },
+    { character: 'ミ', meaning: 'MI', pronunciation: 'mi' },
+    { character: 'ム', meaning: 'MU', pronunciation: 'mu' },
+    { character: 'メ', meaning: 'ME', pronunciation: 'me' },
+    { character: 'モ', meaning: 'MO', pronunciation: 'mo' },
+    { character: 'ヤ', meaning: 'YA', pronunciation: 'ya' },
+    { character: 'ユ', meaning: 'YU', pronunciation: 'yu' },
+    { character: 'ヨ', meaning: 'YO', pronunciation: 'yo' },
+    { character: 'ラ', meaning: 'RA', pronunciation: 'ra' },
+    { character: 'リ', meaning: 'RI', pronunciation: 'ri' },
+    { character: 'ル', meaning: 'RU', pronunciation: 'ru' },
+    { character: 'レ', meaning: 'RE', pronunciation: 're' },
+    { character: 'ロ', meaning: 'RO', pronunciation: 'ro' },
+    { character: 'ワ', meaning: 'WA', pronunciation: 'wa' },
+    { character: 'ヲ', meaning: 'WO', pronunciation: 'wo' },
+    { character: 'ン', meaning: 'N', pronunciation: 'n' }
+];
+
+let currentScript = 'kanji'; // 'kanji', 'hiragana', or 'katakana'
 let currentCardIndex = 0;
 let correctAnswers = 0;
 let currentAnswer = '';
@@ -651,6 +750,9 @@ function initializeFlashcardGame() {
             console.error('Missing required elements for game initialization');
             return;
         }
+        
+        // Initialize script toggle buttons
+        initializeScriptToggles();
         
         // Initialize game
         console.log('About to start new game...');
@@ -709,17 +811,110 @@ function initializeFlashcardGame() {
     }, isMobile ? 500 : 100);
 }
 
-function startNewGame() {
-    console.log('kanjiData length:', kanjiData.length);
+function initializeScriptToggles() {
+    const scriptToggleContainer = document.getElementById('script-toggles');
+    if (!scriptToggleContainer) {
+        console.error('Script toggle container not found');
+        return;
+    }
     
-    // Check if kanjiData is available
-    if (!kanjiData || kanjiData.length === 0) {
-        console.error('kanjiData is not available');
+    // Create toggle buttons
+    const scripts = [
+        { id: 'kanji', name: 'Kanji', icon: '漢字' },
+        { id: 'hiragana', name: 'Hiragana', icon: 'あ' },
+        { id: 'katakana', name: 'Katakana', icon: 'ア' }
+    ];
+    
+    scriptToggleContainer.innerHTML = '';
+    
+    scripts.forEach(script => {
+        const button = document.createElement('button');
+        button.className = `script-toggle-btn ${script.id === currentScript ? 'active' : ''}`;
+        button.innerHTML = `
+            <span class="script-icon">${script.icon}</span>
+            <span class="script-name">${script.name}</span>
+        `;
+        button.dataset.script = script.id;
+        
+        button.addEventListener('click', () => {
+            switchScript(script.id);
+        });
+        
+        scriptToggleContainer.appendChild(button);
+    });
+}
+
+function switchScript(scriptId) {
+    if (scriptId === currentScript) return;
+    
+    // Update current script
+    currentScript = scriptId;
+    
+    // Update active button
+    const buttons = document.querySelectorAll('.script-toggle-btn');
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.script === scriptId) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Update game title to generic text
+    const gameTitle = document.querySelector('.section-title');
+    if (gameTitle) {
+        gameTitle.textContent = 'Test your Japanese knowledge!';
+    }
+    
+    // Update hint text
+    const hintElement = document.querySelector('.flashcard-hint');
+    if (hintElement) {
+        switch(scriptId) {
+            case 'hiragana':
+                hintElement.textContent = 'What does this hiragana character mean?';
+                break;
+            case 'katakana':
+                hintElement.textContent = 'What does this katakana character mean?';
+                break;
+            default:
+                hintElement.textContent = 'What does this kanji mean?';
+                break;
+        }
+    }
+    
+    // Start new game with new script
+    startNewGame();
+}
+
+function startNewGame() {
+    let currentData;
+    let dataName;
+    
+    // Select data based on current script
+    switch(currentScript) {
+        case 'hiragana':
+            currentData = hiraganaData;
+            dataName = 'hiraganaData';
+            break;
+        case 'katakana':
+            currentData = katakanaData;
+            dataName = 'katakanaData';
+            break;
+        default:
+            currentData = kanjiData;
+            dataName = 'kanjiData';
+            break;
+    }
+    
+    console.log(dataName + ' length:', currentData.length);
+    
+    // Check if data is available
+    if (!currentData || currentData.length === 0) {
+        console.error(dataName + ' is not available');
         return;
     }
     
     // Shuffle and select 10 random cards
-    currentGameCards = shuffleArray([...kanjiData]).slice(0, 10);
+    currentGameCards = shuffleArray([...currentData]).slice(0, 10);
     currentCardIndex = 0;
     correctAnswers = 0;
     gameInProgress = true;
@@ -749,26 +944,26 @@ function finishGame() {
 function loadCard(index) {
     console.log('Loading card at index:', index);
     
-    const kanjiElement = document.getElementById('kanji-character');
+    const characterElement = document.getElementById('kanji-character');
     const answerElement = document.getElementById('answer-text');
     const pronunciationElement = document.getElementById('pronunciation');
     const multipleChoiceOptions = document.getElementById('multiple-choice-options');
     
     console.log('Elements found:', {
-        kanjiElement: !!kanjiElement,
+        characterElement: !!characterElement,
         answerElement: !!answerElement,
         pronunciationElement: !!pronunciationElement,
         multipleChoiceOptions: !!multipleChoiceOptions
     });
     
-    if (kanjiElement && answerElement && pronunciationElement && multipleChoiceOptions) {
+    if (characterElement && answerElement && pronunciationElement && multipleChoiceOptions) {
         const card = currentGameCards[index];
         console.log('Card data:', card);
         
         // Ensure elements are visible
-        kanjiElement.style.display = 'block';
-        kanjiElement.style.visibility = 'visible';
-        kanjiElement.style.opacity = '1';
+        characterElement.style.display = 'block';
+        characterElement.style.visibility = 'visible';
+        characterElement.style.opacity = '1';
         
         answerElement.style.display = 'block';
         answerElement.style.visibility = 'visible';
@@ -782,7 +977,13 @@ function loadCard(index) {
         multipleChoiceOptions.style.visibility = 'visible';
         multipleChoiceOptions.style.opacity = '1';
         
-        kanjiElement.textContent = card.kanji;
+        // Set character based on script type
+        if (currentScript === 'kanji') {
+            characterElement.textContent = card.kanji;
+        } else {
+            characterElement.textContent = card.character;
+        }
+        
         answerElement.textContent = card.meaning;
         pronunciationElement.textContent = card.pronunciation;
         currentAnswer = card.meaning;
@@ -791,7 +992,7 @@ function loadCard(index) {
         generateMultipleChoiceOptions(card, multipleChoiceOptions);
         
         console.log('Card loaded successfully:', {
-            kanji: card.kanji,
+            character: currentScript === 'kanji' ? card.kanji : card.character,
             meaning: card.meaning,
             pronunciation: card.pronunciation
         });
@@ -805,8 +1006,22 @@ function generateMultipleChoiceOptions(correctCard, container) {
     console.log('Container element:', container);
     console.log('Container innerHTML before:', container.innerHTML);
     
+    // Get current data based on script
+    let currentData;
+    switch(currentScript) {
+        case 'hiragana':
+            currentData = hiraganaData;
+            break;
+        case 'katakana':
+            currentData = katakanaData;
+            break;
+        default:
+            currentData = kanjiData;
+            break;
+    }
+    
     // Get 2 random wrong answers from other cards
-    const otherCards = kanjiData.filter(card => card.meaning !== correctCard.meaning);
+    const otherCards = currentData.filter(card => card.meaning !== correctCard.meaning);
     const shuffledOthers = shuffleArray([...otherCards]);
     const wrongOptions = shuffledOthers.slice(0, 2).map(card => card.meaning);
     
