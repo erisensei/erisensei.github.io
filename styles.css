@@ -373,6 +373,19 @@ body::before {
     border-color: rgba(255, 107, 107, 0.6);
 }
 
+/* Disable hover effects on mobile devices */
+@media (hover: none) and (pointer: coarse) {
+    .profile-image:hover {
+        transform: none;
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            0 0 0 20px rgba(255, 107, 107, 0.1),
+            0 0 0 40px rgba(78, 205, 196, 0.1);
+        border-width: 4px;
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+}
+
 .profile-image:active {
     transform: scale(1.08) translateY(-4px);
     transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -3313,13 +3326,13 @@ body::before {
     }
     
     .profile-image:hover {
-        transform: scale(1.1) translateY(-5px);
+        transform: none;
         box-shadow: 
-            0 12px 35px rgba(0, 0, 0, 0.4),
-            0 0 0 20px rgba(255, 107, 107, 0.25),
-            0 0 0 40px rgba(78, 205, 196, 0.25);
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            0 0 0 20px rgba(255, 107, 107, 0.1),
+            0 0 0 40px rgba(78, 205, 196, 0.1);
         border-width: 4px;
-        border-color: rgba(255, 107, 107, 0.5);
+        border-color: rgba(255, 255, 255, 0.3);
     }
     
     .profile-image:active {
@@ -5919,13 +5932,13 @@ body {
     }
     
     .profile-image:hover {
-        transform: scale(1.08) translateY(-3px);
+        transform: none;
         box-shadow: 
-            0 10px 30px rgba(0, 0, 0, 0.4),
-            0 0 0 15px rgba(255, 107, 107, 0.25),
-            0 0 0 30px rgba(78, 205, 196, 0.25);
-        border-width: 3px;
-        border-color: rgba(255, 107, 107, 0.5);
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            0 0 0 20px rgba(255, 107, 107, 0.1),
+            0 0 0 40px rgba(78, 205, 196, 0.1);
+        border-width: 4px;
+        border-color: rgba(255, 255, 255, 0.3);
     }
     
     .profile-image:active {
@@ -6036,13 +6049,13 @@ body {
     }
     
     .profile-image:hover {
-        transform: scale(1.06) translateY(-2px);
+        transform: none;
         box-shadow: 
-            0 8px 25px rgba(0, 0, 0, 0.4),
-            0 0 0 12px rgba(255, 107, 107, 0.25),
-            0 0 0 25px rgba(78, 205, 196, 0.25);
-        border-width: 3px;
-        border-color: rgba(255, 107, 107, 0.5);
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            0 0 0 20px rgba(255, 107, 107, 0.1),
+            0 0 0 40px rgba(78, 205, 196, 0.1);
+        border-width: 4px;
+        border-color: rgba(255, 255, 255, 0.3);
     }
     
     .profile-image:active {
