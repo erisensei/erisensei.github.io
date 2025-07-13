@@ -1179,7 +1179,7 @@ function hideFeedback() {
 let gameInitialized = false;
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM loaded, initializing flashcard game...');
+    console.log('DOM loaded, initializing games...');
     
     // Add mobile detection
     const isMobile = window.innerWidth <= 768;
@@ -1195,7 +1195,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Also initialize on window load for mobile devices (but only if not already initialized)
     window.addEventListener('load', () => {
-        console.log('Window loaded, checking flashcard game...');
+        console.log('Window loaded, checking games...');
         if (!gameInitialized) {
             setTimeout(() => {
                 initializeFlashcardGame();
@@ -1264,3 +1264,7 @@ function manualSync() {
         });
     }
 } 
+
+
+
+ 
