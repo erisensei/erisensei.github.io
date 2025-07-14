@@ -376,14 +376,15 @@ body::before {
 }
 
 .profile-image.bulge-animate {
-  animation: bulge 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: bulge 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
   box-shadow: 
     0 20px 50px rgba(0, 0, 0, 0.4),
     0 0 0 35px rgba(255, 107, 107, 0.25),
-    0 0 0 70px rgba(78, 205, 196, 0.25);
-  border-width: 6px;
-  border-color: rgba(255, 107, 107, 0.6);
+    0 0 0 70px rgba(78, 205, 196, 0.25) !important;
+  border-width: 6px !important;
+  border-color: rgba(255, 107, 107, 0.6) !important;
   z-index: 10;
+  transform: scale(1);
 }
 
 .profile-image:hover,
