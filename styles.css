@@ -396,12 +396,12 @@ body::before {
   }
   .element {
     font-size: 0.1rem;
-    opacity: 0.15;
+    opacity: 0.08;
     z-index: 1;
   }
 
 .element:hover {
-    opacity: 1;
+    opacity: 0.95;
     transform: scale(1.1);
 }
 
@@ -6071,7 +6071,7 @@ body {
   }
   .element {
     font-size: 0.3rem;
-    opacity: 0.015;
+    opacity: 0.3;
     z-index: 1;
   }
 }
