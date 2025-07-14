@@ -1265,6 +1265,25 @@ function manualSync() {
     }
 } 
 
+document.addEventListener('DOMContentLoaded', function () {
+  var profileImg = document.querySelector('.profile-image');
+  if (!profileImg) return;
+
+  function triggerBulge() {
+    profileImg.classList.remove('bulge-animate');
+    // Force reflow to restart animation
+    void profileImg.offsetWidth;
+    profileImg.classList.add('bulge-animate');
+  }
+
+  profileImg.addEventListener('mouseenter', triggerBulge);
+  profileImg.addEventListener('touchstart', triggerBulge);
+  profileImg.addEventListener('click', triggerBulge);
+
+  profileImg.addEventListener('animationend', function () {
+    profileImg.classList.remove('bulge-animate');
+  });
+});
 
 
  
