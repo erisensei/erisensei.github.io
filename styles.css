@@ -331,10 +331,21 @@ body::before {
     }
 
 .profile-image {
-    width: 180px;
-    height: 180px;
+    width: 356px;
+    height: 356px;
+    border-radius: 50%;
+    object-fit: cover;
     margin: 0 auto;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: block;
+    background: linear-gradient(135deg, #ff6b9d, #4ecdc4, #667eea, #764ba2);
+    padding: 4px;
+    box-shadow: 
+      0 8px 32px rgba(0,0,0,0.3),
+      0 0 0 8px rgba(255,255,255,0.1),
+      0 0 0 16px rgba(102,126,234,0.2),
+      0 0 0 24px rgba(118,75,162,0.1);
+    position: relative;
+    z-index: 2;
 }
 
 @keyframes profilePulse {
@@ -373,30 +384,19 @@ body::before {
 }
 
 /* Floating Elements */
-.floating-elements {
+  .floating-elements {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100vw; height: 100%;
     pointer-events: none;
-    overflow: hidden;
     z-index: 1;
-}
-
-.element {
-    position: absolute;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 3.5rem;
-    font-weight: 700;
-    animation: float 6s ease-in-out infinite;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
+    opacity: 0.008;
+    filter: blur(3px);
+  }
+  .element {
+    font-size: 0.3rem;
+    opacity: 0.008;
     z-index: 1;
-    will-change: transform;
-    transform: translateZ(0);
-}
+  }
 
 .element:hover {
     opacity: 1;
@@ -3022,10 +3022,33 @@ body::before {
     }
 
     .profile-image {
-        width: 180px;
-        height: 180px;
+        width: 216px;
+        height: 216px;
+        border-radius: 50%;
+        object-fit: cover;
         margin: 0 auto;
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: block;
+        background: linear-gradient(135deg, #ff6b9d, #4ecdc4, #667eea, #764ba2);
+        padding: 4px;
+        box-shadow: 
+          0 8px 32px rgba(0,0,0,0.3),
+          0 0 0 8px rgba(255,255,255,0.1),
+          0 0 0 16px rgba(102,126,234,0.2),
+          0 0 0 24px rgba(118,75,162,0.1);
+        position: relative;
+        z-index: 2;
+    }
+    
+    .profile-image::before {
+        content: '';
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        right: 4px;
+        bottom: 4px;
+        border-radius: 50%;
+        background: #fff;
+        z-index: -1;
     }
     
     .profile-image:hover {
@@ -3049,7 +3072,8 @@ body::before {
     }
     
     .element {
-        font-size: 2rem;
+        font-size: 0.8rem;
+        opacity: 0.03;
         animation-duration: 4s;
     }
 
@@ -3145,14 +3169,15 @@ body::before {
 
     /* Floating elements - optimize for mobile */
     .floating-elements {
-        opacity: 0.3;
+        opacity: 0.012;
         position: relative;
         height: auto;
         min-height: 100%;
     }
     
     .element {
-        font-size: 1.5rem;
+        font-size: 0.5rem;
+        opacity: 0.012;
         animation-duration: 4s;
         position: relative;
         display: inline-block;
@@ -3160,8 +3185,8 @@ body::before {
     }
     
     .japanese-element {
-        font-size: 1.8rem;
-        opacity: 0.4;
+        font-size: 0.8rem;
+        opacity: 0.025;
         animation-duration: 5s;
         position: relative;
         display: inline-block;
@@ -3169,8 +3194,8 @@ body::before {
     }
     
     .element {
-        font-size: 2.2rem;
-        opacity: 0.5;
+        font-size: 1rem;
+        opacity: 0.03;
         animation-duration: 4s;
         position: relative;
         display: inline-block;
@@ -3217,8 +3242,8 @@ body::before {
     }
     
     .japanese-element {
-        font-size: 1.4rem;
-        opacity: 0.3;
+        font-size: 1rem;
+        opacity: 0.025;
         animation-duration: 6s;
         position: relative;
         display: inline-block;
@@ -3227,8 +3252,8 @@ body::before {
     }
     
     .element {
-        font-size: 1.8rem;
-        opacity: 0.4;
+        font-size: 1.2rem;
+        opacity: 0.04;
         animation-duration: 5s;
         position: relative;
         display: inline-block;
@@ -3339,13 +3364,33 @@ body::before {
     }
 
     .profile-image {
-        width: 180px;
-        height: 180px;
+        width: 216px;
+        height: 216px;
+        border-radius: 50%;
+        object-fit: cover;
         margin: 0 auto;
         display: block;
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        position: static;
-        z-index: auto;
+        background: linear-gradient(135deg, #ff6b9d, #4ecdc4, #667eea, #764ba2);
+        padding: 4px;
+        box-shadow: 
+          0 8px 32px rgba(0,0,0,0.3),
+          0 0 0 8px rgba(255,255,255,0.1),
+          0 0 0 16px rgba(102,126,234,0.2),
+          0 0 0 24px rgba(118,75,162,0.1);
+        position: relative;
+        z-index: 2;
+    }
+    
+    .profile-image::before {
+        content: '';
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        right: 4px;
+        bottom: 4px;
+        border-radius: 50%;
+        background: #fff;
+        z-index: -1;
     }
     
     .profile-image:hover {
@@ -3359,7 +3404,7 @@ body::before {
     }
     
     .profile-image:active {
-        transform: scale(1.05) translateY(-2px);
+        transform: none;
         transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     
@@ -3426,502 +3471,21 @@ body::before {
         font-size: 14px;
     }
 
-    /* Footer */
-    .footer {
-        padding: 2rem 0 1rem;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
-
-    /* General */
-    .section-title {
-        font-size: 1.8rem;
-    }
-
-    .section-subtitle {
-        font-size: 0.95rem;
-    }
-    
-    /* FAQ Section */
     .faq-item {
-        padding: 1.5rem;
+        padding: 0.75rem;
     }
     
     .faq-item h3 {
-        font-size: 1.1rem;
-    }
-    
-    .faq-cta .btn {
-        font-size: 0.9rem;
-        padding: 0.7rem 1.2rem;
-    }
-    
-    /* Blog mobile styles */
-    .blog-header-content h1 {
-        font-size: 2rem;
-    }
-    
-    .blog-header-content p {
         font-size: 1rem;
     }
     
-    .blog-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 0 1rem;
-    }
-    
-    .blog-post-card .post-title {
-        font-size: 1.1rem;
-    }
-    
-    .modal-content {
-        width: 95%;
-        max-height: 95vh;
-    }
-    
-    .blog-post .post-header h1 {
-        font-size: 1.8rem;
-    }
-    
-    .blog-post-card .post-content {
-        padding: 1rem;
-    }
-    
-    .blog-post-card .post-excerpt {
-        font-size: 0.9rem;
-    }
-    
-    .blog-post-card .post-meta {
+    .faq-item p {
         font-size: 0.8rem;
-        flex-direction: column;
-        gap: 0.3rem;
-        align-items: flex-start;
-    }
-    
-    .modal-body {
-        padding: 1.5rem;
-    }
-    
-    .blog-post .post-content h2 {
-        font-size: 1.4rem;
-    }
-    
-    .blog-post .post-content h3 {
-        font-size: 1.2rem;
-    }
-    
-    .blog-post .post-content .lead {
-        font-size: 1.1rem;
-    }
-    
-    .post-cta {
-        padding: 1.5rem;
-    }
-    
-    .post-cta p {
-        font-size: 1rem;
-    }
-}
-
-/* Extra small devices */
-@media (max-width: 360px) {
-    .hero-content {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        text-align: center !important;
-        gap: 1rem !important;
-        width: 100vw !important;
-        max-width: 100vw !important;
-        margin: 0 !important;
-        padding: 0.5rem 0.5rem !important;
-        box-sizing: border-box;
-        position: relative;
-        overflow: visible;
-    }
-    
-    .hero-title {
-        font-size: 1.8rem;
-        text-align: center;
-        width: 100%;
-        margin-bottom: 0.5rem;
-    }
-    
-    /* iPhone 12 mini and similar small screens */
-    .container {
-        padding: 0 12px;
-        max-width: 100vw;
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
-    }
-    
-    /* Ensure all text fits within viewport */
-    .hero-description,
-    .about-text p,
-    .service-card p,
-    .testimonial-content p,
-    .contact-info p,
-    .faq-item p,
-    .story-heading,
-    .feature p,
-    .approach-text p,
-    .blog-post-card .post-excerpt,
-    .blog-post .post-content p {
-        max-width: calc(100vw - 16px);
-        padding: 0 4px;
-        font-size: 0.9rem;
-        line-height: 1.5;
-        word-break: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto;
-    }
-    
-    /* Fix button text overflow */
-    .btn {
-        font-size: 0.85rem;
-        padding: 8px 12px;
-        white-space: normal;
-        text-align: center;
-        line-height: 1.3;
-    }
-    
-    /* Fix navigation text */
-    .nav-link {
-        font-size: 0.9rem;
-        padding: 8px 6px;
-    }
-    
-    /* Fix section titles */
-    .section-title {
-        font-size: 1.4rem;
-        line-height: 1.3;
-        padding: 0 4px;
-    }
-    
-    /* Fix card content */
-    .service-card,
-    .testimonial-card,
-    .feature {
-        padding: 1rem 0.8rem;
-        margin: 0 4px;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-        text-align: center;
-        width: 100%;
-        margin-bottom: 0.5rem;
-    }
-
-    .hero-text {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 auto 1rem auto;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-    }
-    
-    .hero-image {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        padding-bottom: 0.5rem;
-    }
-    
-    .hero-description {
-        text-align: center;
-        width: 100%;
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 1rem;
-    }
-
-    .profile-image {
-        width: 180px;
-        height: 180px;
-        margin: 0 auto;
-        display: block;
-        position: static;
-        z-index: auto;
-    }
-
-    .btn {
-        padding: 10px 20px;
-        font-size: 13px;
-    }
-
-    .section-title {
-        font-size: 1.6rem;
-    }
-    
-    /* Flashcard game for very small screens */
-    .flashcard {
-        width: 240px;
-        height: 140px;
-    }
-    
-    .kanji-character {
-        font-size: 2rem;
-    }
-    
-    .answer-text {
-        font-size: 1.1rem;
-    }
-    
-    .multiple-choice-option {
-        font-size: 0.8rem;
-        padding: 8px 10px;
-        min-height: 36px;
-    }
-    
-    .flashcard-controls .btn {
-        max-width: 160px;
-        font-size: 0.85rem;
-        padding: 8px 12px;
-    }
-    
-    .stat-item {
-        padding: 0.4rem 0.6rem;
-    }
-    
-    .stat-item .stat-number {
-        font-size: 1.1rem;
-    }
-    
-    .stat-item .stat-label {
-        font-size: 0.75rem;
-    }
-}
-    
-    /* Blog extra small mobile styles */
-    .blog-header-content h1 {
-        font-size: 1.8rem;
-    }
-    
-    .blog-header-content p {
-        font-size: 0.9rem;
-    }
-    
-    .blog-grid {
-        padding: 0 0.5rem;
-        gap: 1rem;
-    }
-    
-    .blog-post-card .post-title {
-        font-size: 1rem;
-    }
-    
-    .blog-post-card .post-excerpt {
-        font-size: 0.85rem;
-    }
-    
-    .blog-post-card .post-content {
-        padding: 0.8rem;
-    }
-    
-    .modal-content {
-        width: 98%;
-        max-height: 98vh;
-    }
-    
-    .modal-body {
-        padding: 1rem;
-    }
-    
-    .blog-post .post-header h1 {
-        font-size: 1.5rem;
-    }
-    
-    .blog-post .post-content h2 {
-        font-size: 1.2rem;
-    }
-    
-    .blog-post .post-content h3 {
-        font-size: 1.1rem;
-    }
-    
-    .blog-post .post-content .lead {
-        font-size: 1rem;
-    }
-    
-    .post-cta {
-        padding: 1rem;
-    }
-    
-    .post-cta p {
-        font-size: 0.9rem;
-    }
-    
-    .japanese-element {
-        font-size: 1.2rem;
-        opacity: 0.25;
-        animation-duration: 7s;
-    }
-    
-    .element {
-        font-size: 1.6rem;
-        opacity: 0.35;
-        animation-duration: 6s;
-    }
-}
-
-/* iPhone 12 mini and similar very small screens */
-@media (max-width: 375px) and (max-height: 812px) {
-    .container {
-        padding: 0 6px;
-        max-width: 100vw;
-        overflow-x: hidden;
-    }
-    
-    /* Prevent horizontal scrolling */
-    body {
-        overflow-x: hidden;
-        width: 100vw;
-    }
-    
-    /* Ensure all text containers fit */
-    .hero-content,
-    .about-content,
-    .services-grid,
-    .testimonials-grid,
-    .contact-content,
-    .faq-content {
-        max-width: calc(100vw - 12px);
-        padding: 0 2px;
-    }
-    
-    /* Fix text overflow in all sections */
-    .hero-description,
-    .about-text p,
-    .service-card p,
-    .testimonial-content p,
-    .contact-info p,
-    .faq-item p,
-    .story-heading,
-    .feature p,
-    .approach-text p,
-    .blog-post-card .post-excerpt,
-    .blog-post .post-content p,
-    .travel-description {
-        max-width: calc(100vw - 16px);
-        padding: 0 3px;
-        font-size: 0.85rem;
         line-height: 1.4;
-        word-break: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto;
-        text-align: justify;
-    }
-    
-    /* Fix button sizing */
-    .btn {
-        font-size: 0.8rem;
-        padding: 6px 10px;
-        white-space: normal;
-        text-align: center;
-        line-height: 1.2;
-        max-width: calc(100vw - 20px);
-    }
-    
-    /* Fix navigation */
-    .nav-link {
-        font-size: 0.85rem;
-        padding: 6px 4px;
-    }
-    
-    /* Fix section titles */
-    .section-title {
-        font-size: 1.3rem;
-        line-height: 1.2;
-        padding: 0 3px;
-    }
-    
-    /* Fix card layouts */
-    .service-card,
-    .testimonial-card,
-    .feature {
-        padding: 0.8rem 0.6rem;
-        margin: 0 3px;
-        max-width: calc(100vw - 12px);
-    }
-    
-    /* Fix grid layouts */
-    .services-grid,
-    .testimonials-grid,
-    .about-features {
-        gap: 0.8rem;
-        padding: 0 2px;
-    }
-    
-    /* Fix hero section */
-    .hero-title {
-        font-size: 1.6rem;
-        line-height: 1.2;
-        padding: 0 3px;
-    }
-    
-    .hero-subtitle {
-        font-size: 0.9rem;
-        line-height: 1.3;
-        padding: 0 3px;
-    }
-    
-    .hero-description {
-        font-size: 0.85rem;
-        line-height: 1.4;
-        padding: 0 3px;
-    }
-    
-    /* Fix floating elements for very small screens */
-    .japanese-element,
-    .element {
-        font-size: 1rem;
-        opacity: 0.2;
-        animation-duration: 8s;
-        position: relative;
-        display: inline-block;
-        margin: 0.2rem;
-        transform: translateZ(0);
-    }
-    
-    /* Ensure floating elements work properly on very small screens */
-    .floating-elements,
-    .floating-elements-about,
-    .floating-elements-services,
-    .floating-elements-testimonials,
-    .floating-elements-contact,
-    .floating-elements-faq,
-    .floating-elements-game,
-    .floating-elements-travel {
-        position: relative;
-        height: auto;
-        min-height: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        padding: 0.5rem;
-        gap: 0.3rem;
-        overflow: visible;
     }
 }
 
-/* Landscape orientation on mobile */
+/* Landscape Orientation for Mobile */
 @media (max-width: 768px) and (orientation: landscape) {
     .hero {
         min-height: 100vh;
@@ -6350,6 +5914,200 @@ body {
         transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 } 
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: unset;
+    padding: 1.2rem 0 0.5rem 0;
+    width: 100vw;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-container {
+    width: 100vw;
+    max-width: 100vw;
+    padding: 0;
+    margin: 0;
+  }
+  .hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: center !important;
+    gap: 0.6rem !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 0.5rem !important;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 0.2rem auto;
+    padding: 0;
+    z-index: 2;
+  }
+  .profile-image {
+    width: 900px;
+    height: 900px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+    background: linear-gradient(135deg, #ff6b9d, #4ecdc4, #667eea, #764ba2, #ff6b9d);
+    background-size: 400% 400%;
+    animation: gradientShift 3s ease-in-out infinite;
+    padding: 10px;
+    box-shadow: 
+      0 25px 100px rgba(0,0,0,0.4),
+      0 0 0 20px rgba(255,255,255,0.15),
+      0 0 0 40px rgba(102,126,234,0.3),
+      0 0 0 60px rgba(118,75,162,0.2),
+      0 0 0 80px rgba(255,107,157,0.1),
+      0 0 120px rgba(78,205,196,0.3);
+    position: relative;
+    z-index: 2;
+    transform: rotate(0deg);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .profile-image:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 
+      0 20px 60px rgba(0,0,0,0.5),
+      0 0 0 15px rgba(255,255,255,0.2),
+      0 0 0 30px rgba(102,126,234,0.4),
+      0 0 0 45px rgba(118,75,162,0.3),
+      0 0 0 60px rgba(255,107,157,0.2),
+      0 0 80px rgba(78,205,196,0.4),
+      0 0 100px rgba(255,107,157,0.3);
+    animation: gradientShift 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .profile-image::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fff, #f8f9fa);
+    z-index: -1;
+    box-shadow: inset 0 4px 16px rgba(0,0,0,0.1);
+  }
+  
+  .profile-image::after {
+    content: '✨';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    font-size: 4rem;
+    animation: sparkle 2s ease-in-out infinite;
+    z-index: 3;
+  }
+  
+  @keyframes sparkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+  }
+  @keyframes profilePulse {
+    0%, 100% { 
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            0 0 0 20px rgba(255, 107, 107, 0.1),
+            0 0 0 40px rgba(78, 205, 196, 0.1);
+    }
+    50% { 
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            0 0 0 25px rgba(255, 107, 107, 0.2),
+            0 0 0 50px rgba(78, 205, 196, 0.2);
+    }
+  }
+  .hero-text {
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 auto 0.2rem auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    z-index: 2;
+  }
+  .hero-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    line-height: 1.15;
+    text-align: center;
+    width: 100%;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    color: rgba(255,255,255,0.92);
+    text-align: center;
+    width: 100%;
+  }
+  .hero-description {
+    font-size: 0.92rem;
+    margin-bottom: 0.5rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.4;
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-buttons {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0 auto 0.2rem auto;
+  }
+  .hero-buttons .btn {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 0;
+    font-size: 0.98rem;
+    padding: 12px 0;
+    min-height: 40px;
+  }
+  .floating-elements {
+    position: absolute;
+    top: 0 left: 0; width: 100vw; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.015;
+    filter: blur(2px);
+  }
+  .element {
+    font-size: 0.6rem;
+    opacity: 0.015;
+    z-index: 1;
+  }
+}
 
 
 
