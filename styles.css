@@ -6082,6 +6082,59 @@ body {
 
 /* Debug: Make text extremely visible for testing */
 @media (max-width: 480px) {
+  .hero {
+    background: rgba(0, 255, 0, 0.3) !important;
+    border: 3px solid green !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+    position: relative !important;
+    overflow: visible !important;
+  }
+  
+  .hero-container {
+    background: rgba(0, 0, 255, 0.3) !important;
+    border: 3px solid blue !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+    width: 100% !important;
+  }
+  
+  .hero-content {
+    background: rgba(255, 255, 0, 0.3) !important;
+    border: 3px solid yellow !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    z-index: 999 !important;
+  }
+  
+  .hero-text {
+    background: rgba(255, 0, 255, 0.3) !important;
+    border: 3px solid magenta !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto 0.5rem auto !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 20px !important;
+    z-index: 999 !important;
+    position: relative !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
   .hero-title {
     background: rgba(255, 0, 0, 0.3) !important;
     border: 2px solid red !important;
@@ -6094,6 +6147,9 @@ body {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
   }
 }
 
