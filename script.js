@@ -1265,66 +1265,7 @@ function manualSync() {
     }
 } 
 
-document.addEventListener('DOMContentLoaded', function () {
-  var profileImg = document.querySelector('.profile-image');
-  if (!profileImg) {
-    console.log('Profile image not found');
-    return;
-  }
 
-  function triggerBulge() {
-    console.log('Triggering bulge animation');
-    
-    // Remove the class first
-    profileImg.classList.remove('bulge-animate');
-    
-    // Force a reflow to ensure the class removal is processed
-    profileImg.offsetHeight;
-    
-    // Temporarily pause the pulse animation
-    profileImg.style.animation = 'none';
-    profileImg.offsetHeight;
-    
-    // Add the class back to trigger the animation
-    profileImg.classList.add('bulge-animate');
-    
-    // Force another reflow to ensure the class is applied
-    profileImg.offsetHeight;
-  }
-
-  // Add event listeners for different interaction types
-  profileImg.addEventListener('mouseenter', triggerBulge);
-  profileImg.addEventListener('touchstart', triggerBulge, { passive: true });
-  profileImg.addEventListener('click', triggerBulge);
-  profileImg.addEventListener('mousedown', triggerBulge);
-  profileImg.addEventListener('touchend', triggerBulge);
-
-  // Remove the class when animation ends
-  profileImg.addEventListener('animationend', function () {
-    console.log('Animation ended, removing class');
-    profileImg.classList.remove('bulge-animate');
-    // Restore the pulse animation
-    profileImg.style.animation = '';
-  });
-
-  // Also remove class after a timeout as backup
-  profileImg.addEventListener('animationstart', function () {
-    console.log('Animation started');
-    setTimeout(() => {
-      profileImg.classList.remove('bulge-animate');
-      // Restore the pulse animation
-      profileImg.style.animation = '';
-    }, 600); // Remove after 600ms as backup
-  });
-
-  // Test the animation on load
-  setTimeout(() => {
-    console.log('Testing bulge animation on load');
-    triggerBulge();
-  }, 2000);
-
-  console.log('Bulge animation listeners added to profile image');
-});
 
 
  
