@@ -5972,6 +5972,19 @@ body {
     transition: all 0.3s ease;
   }
   
+  .profile-image::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border-radius: 50%;
+    background: #fff;
+    z-index: -1;
+    pointer-events: none;
+  }
+  
   .profile-image:hover {
     transform: scale(1.05);
     box-shadow: 
