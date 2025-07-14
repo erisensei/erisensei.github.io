@@ -2962,21 +2962,17 @@ body::before {
     .hero-content {
         display: flex !important;
         flex-direction: column !important;
-        grid-template-columns: none !important;
-        grid-template-areas: none !important;
-        grid-template-rows: none !important;
-        text-align: center;
-        gap: 2rem;
-        justify-items: center;
-        align-items: center;
-        justify-content: center;
-        min-height: 80vh;
-        padding: 2rem 0;
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        gap: 2rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 2rem 0 !important;
+        box-sizing: border-box;
         position: relative;
-        overflow: hidden;
+        overflow: visible;
     }
 
     .hero-title {
@@ -3513,7 +3509,7 @@ body::before {
         grid-template-columns: none !important;
         grid-template-areas: none !important;
         text-align: center;
-        gap: 1.5rem;
+        gap: 1.5rem !important;
         justify-items: center;
         align-items: center;
         justify-content: center;
