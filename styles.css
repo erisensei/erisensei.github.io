@@ -2957,6 +2957,15 @@ body::before {
     .hero {
         min-height: 90vh;
         padding: 80px 0 2rem 0;
+        width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    .hero-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
     }
 
     .hero-content {
@@ -2966,10 +2975,10 @@ body::before {
         justify-content: center !important;
         text-align: center !important;
         gap: 2rem !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 auto !important;
-        padding: 2rem 0 !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin: 0 !important;
+        padding: 2rem 1rem !important;
         box-sizing: border-box;
         position: relative;
         overflow: visible;
@@ -2992,17 +3001,43 @@ body::before {
         margin-bottom: 1.5rem;
     }
 
-    .hero-buttons {
-        justify-content: center;
-        gap: 1rem;
+    .hero-text {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto 1.5rem auto;
+        text-align: center;
+        display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+    
+    .hero-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        padding-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin: 0 auto;
     }
 
     .hero-buttons .btn {
         width: 100%;
-        max-width: 280px;
-        margin-bottom: 0.5rem;
+        max-width: 100%;
+        margin-bottom: 0;
+        font-size: 1rem;
+        padding: 14px 0;
     }
 
     .profile-image {
@@ -3252,10 +3287,19 @@ body::before {
     /* Hero Section */
     .hero {
         min-height: 85vh;
-        padding: 4.5rem 0 1rem 0; /* Add extra top padding for navbar */
+        padding: 4.5rem 0 1rem 0;
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    .hero-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
     }
 
     .hero-title {
@@ -3506,19 +3550,17 @@ body::before {
     .hero-content {
         display: flex !important;
         flex-direction: column !important;
-        grid-template-columns: none !important;
-        grid-template-areas: none !important;
-        text-align: center;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
         gap: 1.5rem !important;
-        justify-items: center;
-        align-items: center;
-        justify-content: center;
-        min-height: 70vh;
-        padding: 1rem 0;
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin: 0 !important;
+        padding: 1rem 0.5rem !important;
+        box-sizing: border-box;
         position: relative;
+        overflow: visible;
     }
     
     .hero-title {
@@ -3598,10 +3640,31 @@ body::before {
         margin-bottom: 0.5rem;
     }
 
+    .hero-text {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto 1rem auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+    
+    .hero-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        padding-bottom: 1rem;
+    }
+    
     .hero-description {
         text-align: center;
         width: 100%;
-        max-width: 280px;
+        max-width: 100%;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 1rem;
@@ -5910,13 +5973,18 @@ body {
     }
     
     .hero-buttons {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 0.5rem;
+        margin: 0 auto;
     }
     
     .hero-buttons .btn {
         width: 100%;
-        max-width: 200px;
+        max-width: 100%;
         font-size: 0.8rem;
         padding: 10px 16px;
     }
