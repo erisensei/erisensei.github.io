@@ -6080,6 +6080,23 @@ body {
   color: #fff !important;
 }
 
+/* Debug: Make text extremely visible for testing */
+@media (max-width: 480px) {
+  .hero-title {
+    background: rgba(255, 0, 0, 0.3) !important;
+    border: 2px solid red !important;
+    color: #fff !important;
+    font-size: 2rem !important;
+    font-weight: 900 !important;
+    text-shadow: 3px 3px 6px rgba(0,0,0,1) !important;
+    z-index: 999 !important;
+    position: relative !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
 /* Ensure hero text is always visible on mobile */
 @media (max-width: 480px) {
   .hero-title,
@@ -6092,12 +6109,40 @@ body {
     display: block !important;
     position: relative !important;
     z-index: 15 !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   
   .hero-text {
     visibility: visible !important;
     opacity: 1 !important;
     z-index: 15 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 1rem !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    z-index: 5 !important;
   }
 }
 
