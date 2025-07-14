@@ -6064,6 +6064,10 @@ body {
   }
 }
 
+.hero-title, .japanese-text {
+  color: #fff !important;
+}
+
 
 
 
