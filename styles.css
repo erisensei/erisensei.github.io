@@ -311,12 +311,10 @@ body::before {
         align-items: center;
         width: 100%;
         margin: 0 auto;
-        order: 1;
         flex-shrink: 0;
     }
     
     .hero-text {
-        order: 2;
         width: 100%;
         text-align: center;
         display: flex;
@@ -2978,8 +2976,6 @@ body::before {
         max-width: 100%;
         margin: 0 auto;
         position: relative;
-        left: 0;
-        right: 0;
         overflow: hidden;
     }
 
@@ -3281,7 +3277,6 @@ body::before {
     }
 
     .hero-text {
-        order: 2;
         width: 100%;
         text-align: center;
         display: flex;
@@ -3528,8 +3523,6 @@ body::before {
         max-width: 100%;
         margin: 0 auto;
         position: relative;
-        left: 0;
-        right: 0;
     }
     
     .hero-title {
