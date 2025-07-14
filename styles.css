@@ -274,22 +274,27 @@ body::before {
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
     color: rgba(255, 255, 255, 0.9);
 }
 
 .hero-description {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    max-width: 260px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-buttons {
+    width: 100%;
+    max-width: 100%;
     display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 auto 0.5rem auto;
 }
 
 .hero-buttons .btn:nth-child(2) {
@@ -306,12 +311,12 @@ body::before {
 }
 
     .hero-image {
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
         margin: 0 auto;
-        flex-shrink: 0;
+        padding-bottom: 0.5rem;
     }
     
     .hero-text {
@@ -326,26 +331,10 @@ body::before {
     }
 
 .profile-image {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        0 0 0 20px rgba(255, 107, 107, 0.1),
-        0 0 0 40px rgba(78, 205, 196, 0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    animation: profilePulse 3s ease-in-out infinite;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    width: 180px;
+    height: 180px;
     margin: 0 auto;
-    display: block;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 @keyframes profilePulse {
@@ -2947,8 +2936,8 @@ body::before {
 
     /* Hero Section */
     .hero {
-        min-height: 70vh;
-        padding: 60px 0 1rem 0;
+        min-height: 60vh;
+        padding: 2rem 0 1rem 0;
         width: 100vw;
         overflow-x: hidden;
     }
@@ -2966,22 +2955,22 @@ body::before {
         align-items: center !important;
         justify-content: center !important;
         text-align: center !important;
-        gap: 1.5rem !important;
+        gap: 1rem !important;
         width: 100vw !important;
         max-width: 100vw !important;
         margin: 0 !important;
-        padding: 1rem 1rem !important;
+        padding: 0.5rem 1rem !important;
         box-sizing: border-box;
         position: relative;
         overflow: visible;
     }
 
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         line-height: 1.1;
         text-align: center;
         width: 100%;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.3rem;
     }
 
     .hero-subtitle {
@@ -3011,7 +3000,7 @@ body::before {
         justify-content: center;
         align-items: center;
         margin: 0 auto;
-        padding-bottom: 1rem;
+        padding-bottom: 0.5rem;
     }
 
     .hero-buttons {
@@ -3020,8 +3009,8 @@ body::before {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
-        margin: 0 auto;
+        gap: 0.5rem;
+        margin: 0 auto 0.5rem auto;
     }
 
     .hero-buttons .btn {
@@ -3033,8 +3022,8 @@ body::before {
     }
 
     .profile-image {
-        width: 280px;
-        height: 280px;
+        width: 180px;
+        height: 180px;
         margin: 0 auto;
         transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
@@ -3350,8 +3339,8 @@ body::before {
     }
 
     .profile-image {
-        width: 220px;
-        height: 220px;
+        width: 180px;
+        height: 180px;
         margin: 0 auto;
         display: block;
         transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -3650,7 +3639,7 @@ body::before {
         justify-content: center;
         align-items: center;
         margin: 0 auto;
-        padding-bottom: 1rem;
+        padding-bottom: 0.5rem;
     }
     
     .hero-description {
@@ -3663,8 +3652,8 @@ body::before {
     }
 
     .profile-image {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
         margin: 0 auto;
         display: block;
         position: static;
